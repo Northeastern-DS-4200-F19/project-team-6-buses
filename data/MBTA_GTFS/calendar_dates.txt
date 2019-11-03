@@ -1,0 +1,69 @@
+service_id,date,exception_type,holiday_name
+RTL419-5-Wdy-01,20191014,1,Columbus Day
+RTL419-5-Wdy-01,20191016,1,
+RTL419-5-Wdy-01-OkGrvWln,20191016,2,
+BUS419-10-Wdy-02,20191018,2,
+LRV419-1-Wdy-01-NwnHgsKnr,20191018,2,
+RTL419-5-Wdy-01,20191021,1,
+RTL419-5-Wdy-01-OkGrvWln,20191021,2,
+BUS419-10-Wdy-02,20191025,2,
+LRV419-1-Wdy-01-NwnHgsKnr,20191025,2,
+CR-Foxboro-Su-1625,20191027,1,
+BUS419-10-Wdy-02,20191101,2,
+LRV419-1-Wdy-01-NwnHgsKnr,20191101,2,
+BUS419-10-Wdy-02,20191111,2,Veterans Day
+BUS419-W-Wdy-02,20191111,1,Veterans Day
+ColumbusDay-VeteransDay-DayafterThanksgivingDay,20191111,1,Veterans Day
+Weekday,20191111,2,Veterans Day
+BUS419-11-Sa-02,20191123,2,
+BUS419-10-Wdy-02,20191125,2,
+BUS419-10-Wdy-02,20191126,2,
+BUS419-10-Wdy-02,20191127,2,
+LRV419-1-Wdy-01-NwnHgsKnr,20191127,2,
+RTL419-5-Wdy-01,20191127,1,
+RTL419-5-Wdy-01-OkGrvWln,20191127,2,
+BUS419-10-Wdy-02,20191128,2,Thanksgiving Day
+Boat-F1-Wkd,20191128,2,Thanksgiving Day
+Boat-F4-Wkd,20191128,2,Thanksgiving Day
+CR-Su-Fairmount-Fll-19,20191128,1,Thanksgiving Day
+CR-Su-Greenbush-Fll-19,20191128,1,Thanksgiving Day
+CR-Su-Haverhill-Fll-19,20191128,1,Thanksgiving Day
+CR-Su-Kingston-Fll-19,20191128,1,Thanksgiving Day
+CR-Su-Lowell-Fll-19,20191128,1,Thanksgiving Day
+CR-Su-Middleborough-Fll-19,20191128,1,Thanksgiving Day
+CR-Su-Newburyport-Fll-19,20191128,1,Thanksgiving Day
+CR-Su-Providence-Fll-19,20191128,1,Thanksgiving Day
+CR-Su-Worcester-Fll-19,20191128,1,Thanksgiving Day
+CR-Wdy-Fairmount-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Fitchburg-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Franklin-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Greenbush-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Haverhill-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Kingston-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Lowell-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Middleborough-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Needham-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Newburyport-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Providence-Fll-19,20191128,2,Thanksgiving Day
+CR-Wdy-Worcester-Fll-19,20191128,2,Thanksgiving Day
+LRV419-1-Wdy-01-NwnHgsKnr,20191128,2,Thanksgiving Day
+LRV419-5-Wdy-01,20191128,2,Thanksgiving Day
+RTL419-1-Wdy-01,20191128,2,Thanksgiving Day
+RTL419-5-Wdy-01-OkGrvWln,20191128,2,Thanksgiving Day
+RTL419-9-Wdy-01,20191128,2,Thanksgiving Day
+Weekday,20191128,2,Thanksgiving Day
+BUS419-10-Wdy-02,20191129,2,Day after Thanksgiving Day
+ColumbusDay-VeteransDay-DayafterThanksgivingDay,20191129,1,Day after Thanksgiving Day
+LRV419-1-Wdy-01-NwnHgsKnr,20191129,2,Day after Thanksgiving Day
+Weekday,20191129,2,Day after Thanksgiving Day
+BUS419-11-Sa-02,20191130,2,
+CR-Sa-Fitchburg-Fll-19-FtgGLX,20191130,2,
+CRSaFranklinFll19FrgPrkRdlFrgPrkSthStn,20191130,2,
+LRV419-2-Sa-01-NwnHgsKnrW,20191130,2,
+CR-Su-Fitchburg-Fll-19-FtgGLX,20191201,2,
+CRSuFranklinFll19FrgPrkRdlFrgPrkSthStn,20191201,2,
+LRV419-3-Su-01-NwnHgsKnrW,20191201,2,
+BUS419-12-Su-02,20191208,1,
+CR-Foxboro-Su-1625,20191208,1,
+BUS419-12-Su-02,20191215,1,
+CR-Sa-Franklin-Fll-19,20191221,1,
