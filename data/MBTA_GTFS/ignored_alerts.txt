@@ -1,0 +1,4 @@
+alert_id,description
+320037,"Disruption(NewtonHighlandsKenmore, 2019-09-25 to 2019-12-20, 20:45:00 to None, on monday, tuesday, wednesday, thursday, friday)"
+331512,"Disruption(NewtonHighlandsKenmoreWeekend, 2019-10-05 to 2019-12-22, None to None, on saturday, sunday)"
+338707,"Disruption(FitchburgStopAtPorter, 2019-09-28 to 2019-12-22, None to None, on saturday, sunday)"
