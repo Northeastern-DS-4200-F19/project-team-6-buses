@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="lib/d3.v5.12.0/d3.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin=""></script>
+
+</head>
+
+<body>
+
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+
+
+<script>
+    //var d3 = require("d3"),
+    //    jsdom = require("jsdom");
+
+    var shapeData;
+
+    var coords = [];
+
+    d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
+        //console.log(data[4]);
+        shapeData = data;
+
+    }).then(function() {
+        var i;
+        for (i = 0; i < shapeData.length; i++) {
+            var point = shapeData[i];
+            if (point["shape_id"] === "010058") {
+                console.log(point);
+                lat = point["shape_pt_lat"];
+                long = point["shape_pt_lon"];
+                const coord = [lat, long];
+                coords.push(coord);
+                var marker = L.marker(coord).addTo(mymap);
+            }
+
+        }
+    }).then(function() {
+
+    });
+
+    var mymap = L.map('mapid').setView([42.3542, -71.0810], 13);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.' +
+        'png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: 'your.mapbox.access.token'
+    }).addTo(mymap);
+
+
+
+</script>
+
+
+</body>
+</html>
