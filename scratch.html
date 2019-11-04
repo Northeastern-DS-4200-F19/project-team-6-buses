@@ -38,7 +38,13 @@
                 long = point["shape_pt_lon"];
                 const coord = [lat, long];
                 coords.push(coord);
-                var marker = L.marker(coord).addTo(mymap);
+                var firstpolyline = new L.Polyline(coords, {
+                    color: 'red',
+                    weight: 3,
+                    opacity: 0.5,
+                    smoothFactor: 1
+                });
+                firstpolyline.addTo(mymap);
             }
 
         }
