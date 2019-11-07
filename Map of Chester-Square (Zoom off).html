@@ -19,6 +19,9 @@
 
     <div id="mapid" style="width: 600px; height: 400px;"></div>
 <script>
+
+    d3.csv()
+
     var mymap = L.map('mapid',
         {zoomControl:false})
         .setView([42.3382, -71.079], 16
@@ -30,6 +33,8 @@
         id: 'mapbox.streets',
         accessToken: 'your.mapbox.access.token'})
         .addTo(mymap);
+
+
 
 </script>
 </body>

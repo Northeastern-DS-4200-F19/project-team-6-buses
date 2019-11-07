@@ -21,39 +21,68 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
             long = point["shape_pt_lon"];
             const coord = [lat, long];
             coords.push(coord);
+
             var firstpolyline = new L.Polyline(coords, {
-                color: color,
-                weight: 3,
-                opacity: .5,
+                color: 'red',
+                weight: 5,
+                opacity: 6,
                 smoothFactor: 1
             });
             firstpolyline.addTo(mymap);
-        } else if (point["shape_id"] === "430031") {
+        }}
+    var x;
+    for(x=0; x<shapeData.length; x++) {
+        var point = shapeData[x];
+        if (point["shape_id"] === "430031") {
             lat = point["shape_pt_lat"];
             long = point["shape_pt_lon"];
             const coord = [lat, long];
             coords.push(coord);
+
             var secondpolyline = new L.Polyline(coords, {
-                color: color,
-                weight: 3,
-                opacity: .5,
+                color: 'blue',
+                weight: 4,
+                opacity: 5,
                 smoothFactor: 1
             });
             secondpolyline.addTo(mymap);
-        } else if (point["shape_id"] === "7410021") {
+        }}
+    var y;
+    for(y=0; y<shapeData.length; y++){
+        var point = shapeData[y];
+        if (point["shape_id"] === "7490022") {
             lat = point["shape_pt_lat"];
             long = point["shape_pt_lon"];
             const coord = [lat, long];
             coords.push(coord);
+
             var thirdpolyline = new L.Polyline(coords, {
-                color: color,
+                color: 'green',
                 weight: 3,
-                opacity: .5,
+                opacity: 4,
                 smoothFactor: 1
             });
             thirdpolyline.addTo(mymap);
-        }
-    }});
+        }}
+    var z;
+    for(z=0; z<shapeData.length; z++){
+        var point = shapeData[z];
+        if (point["shape_id"] === "7510024") {
+            lat = point["shape_pt_lat"];
+            long = point["shape_pt_lon"];
+            const coord = [lat, long];
+            coords.push(coord);
+
+            var fourthpolyline = new L.Polyline(coords, {
+                color: 'purple',
+                weight: 1,
+                opacity: .5,
+                smoothFactor: 1
+            });
+            fourthpolyline.addTo(mymap);
+        }}
+
+    });
 
 var mymap = L.map('mapid').setView([42.3530, -71.0770], 13);
 
