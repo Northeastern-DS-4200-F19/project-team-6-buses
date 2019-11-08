@@ -1,0 +1,73 @@
+﻿Route,Stop Name,lat,long
+1,Massachusetts Ave @ Holyoke St,42.373136,-71.11753
+1,Massachusetts Ave @ Johnston Gate,42.37488,-71.118458
+1,Quincy St @ Broadway opp Fogg Museum,42.374643,-71.1146
+1,Quincy St @ Harvard St,42.372449,-71.115202
+1,Mt Auburn St @ DeWolfe St,42.371113,-71.116125
+1,Mt Auburn St @ Putnam Ave,42.37006,-71.113514
+1,Massachusetts Ave @ Bay St,42.369061,-71.110436
+1,Massachusetts Ave @ Hancock St,42.368378,-71.108756
+1,Massachusetts Ave @ Pleasant St,42.366738,-71.106096
+1,Massachusetts Ave @ Pearl St,42.364813,-71.102868
+1,Massachusetts Ave @ Sidney St,42.362828,-71.099509
+1,Massachusetts Ave @ Albany St,42.360701,-71.095862
+1,84 Massachusetts Ave,42.359371,-71.093945
+1,Massachusetts Ave @ Marlborough St,42.3501,-71.089088
+1,Massachusetts Ave @ Newbury St,42.348023,-71.088026
+1,Massachusetts Ave opp Christian Science Ctr,42.344414,-71.086447
+1,Massachusetts Ave @ Huntington Ave,42.342879,-71.085011
+1,Massachusetts Ave @ Massachusetts Ave Station,42.341608,-71.083081
+1,Massachusetts Ave @ Columbus Ave,42.340664,-71.081936
+1,Massachusetts Ave @ Tremont St,42.339487,-71.080358
+1,Massachusetts Ave @ Washington St,42.336475,-71.077026
+1,Massachusetts Ave @ Harrison Ave,42.334803,-71.075121
+1,Massachusetts Ave @ Albany St,42.333651,-71.073707
+1,Albany St @ Randall St,42.331691,-71.076326
+1,Melnea Cass Blvd @ Harrison Ave,42.332035,-71.07941
+1,Washington St @ Williams St,42.332103,-71.081733
+1,Washington St @ Ruggles St,42.330997,-71.082743
+1,Dudley Square,42.329776,-71.083892
+43,Ruggles,42.33667,-71.089417
+43,Tremont St @ Ruggles St,42.334539,-71.089505
+43,Tremont St @ Melnea Cass Blvd,42.33571,-71.087127
+43,Tremont St @ Hammond St,42.337266,-71.084011
+43,Tremont St @ Lenox St,42.337832,-71.08304
+43,Tremont St @ Northampton St,42.338883,-71.081036
+43,Tremont St @ W Springfield St,42.339608,-71.079634
+43,Tremont St @ W Concord St,42.340462,-71.078156
+43,Tremont St @ W Newton St,42.341355,-71.076545
+43,Tremont St @ W Brookline St,42.342034,-71.07531
+43,Tremont St @ W Dedham St,42.342843,-71.073835
+43,Tremont St @ Waltham St,42.343913,-71.071653
+43,Tremont St @ E Berkeley St,42.345281,-71.069807
+43,Tremont St @ Herald St,42.347359,-71.068055
+43,Tremont St @ Marginal St,42.348373,-71.06726
+43,Charles St S @ Park Plaza,42.351877,-71.067242
+43,Charles St @ Beacon St,42.356258,-71.069417
+43,Beacon St opp Walnut St,42.356981,-71.065687
+43,Beacon St @ Park St,42.357575,-71.06358
+43,Tremont St opp Temple Pl,42.35586,-71.062826
+SL4,Dudley Square,42.329776,-71.083892
+SL4,Washington St @ Melnea Cass Blvd - Silver Line,42.333061,-71.08081
+SL4,Washington St @ Lenox St,42.334997,-71.078894
+SL4,Washington St @ Massachusetts Ave,42.336475,-71.077026
+SL4,Washington St @ Worcester St,42.337486,-71.075715
+SL4,Washington St @ E Newton St,42.338826,-71.073677
+SL4,Washington St @ Union Pk,42.341371,-71.069438
+SL4,Washington St @ E Berkeley St,42.34392,-71.065917
+SL4,Washington St @ Herald St,42.346424,-71.064744
+SL4,Washington St @ Tufts Med Ctr,42.349947,-71.063678
+SL4,Washington St @ Essex St,42.352413,-71.062582
+SL4,Essex St @ Atlantic Ave,42.351879,-71.056189
+SL5,Dudley Square,42.329776,-71.083892
+SL5,Washington St @ Melnea Cass Blvd - Silver Line,42.333061,-71.08081
+SL5,Washington St @ Lenox St,42.334997,-71.078894
+SL5,Washington St @ Massachusetts Ave,42.336475,-71.077026
+SL5,Washington St @ Worcester St,42.337486,-71.075715
+SL5,Washington St @ E Newton St,42.338826,-71.073677
+SL5,Washington St @ Union Pk,42.341371,-71.069438
+SL5,Washington St @ E Berkeley St,42.34392,-71.065917
+SL5,Washington St @ Herald St,42.346424,-71.064744
+SL5,Washington St @ Tufts Med Ctr,42.349947,-71.063678
+SL5,Washington St @ Essex St,42.352413,-71.062582
+SL5,Temple Pl @ Washington St,42.354783,-71.061231
