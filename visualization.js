@@ -12,6 +12,8 @@ var g = Math.floor(Math.random() * 255);
 var b = Math.floor(Math.random() * 255);
 colors= "rgb("+r+" ,"+g+","+ b+")";
 
+var mymap;
+
 d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     //console.log(data[4]);
     shapeData = data;
@@ -47,12 +49,10 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     }
     allcoords.push(coords1,coords2, coords3, coords4);
 
-    var mymap = L.map('mapid').setView([42.3530, -71.0770], 13);
+    mymap = L.map('mapid').setView([42.3530, -71.0770], 13);
 
 
     L.polyline(allcoords,{color:colors}).addTo(mymap);
-
-
 
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.' +
@@ -65,7 +65,44 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
             accessToken: 'your.mapbox.access.token'
         }).addTo(mymap);
 
+})
+
+var routestops;
+
+d3.csv("data/relevant_stops.csv").then(function (data) {
+    routestops = data;
+}).then(function() {
+    var routestop;
+
+    for (routestop = 0; routestop < routestops.length; routestop++){
+
+        var stop = routestops[routestop];
+        lat = stop["lat"];
+        long = stop["long"];
+        stopname = stop["Stop Name"];
+
+        var marker = L.circleMarker([lat,long]).setRadius(3);
+
+        marker.addTo(mymap);
+
+        //click and binding pop-up function
+        //marker.bindPopup(stopname).openPopup();
+
+
+        //Hovering pop-up function
+        marker.bindPopup(stopname);
+        marker.on('mouseover',function (e){
+            this.openPopup();
+        });
+        marker.on('mouseout',function(e){
+            this.closePopup();
+        });
+
+
+    }
 });
+
+
 
 
 /////Chester Square Visualization
@@ -87,12 +124,14 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
             var stops = ChesterStops[b];
             lat = stops["lat"];
             long = stops["long"];
-            stopname = stops["StopName"]
+            stopname = stops["StopName"];
+            stopID = stops["Shape_id"];
 
             var marker = L.marker([lat,long]);
 
+
             marker.addTo(mymap2);
-            marker.bindPopup(stopname).openPopup();
+            marker.bindPopup("<b>Route: </b>" + stopID + "<br>" + "<b>Stop Name: </b>"+ stopname).openPopup();
         }
     });
 
