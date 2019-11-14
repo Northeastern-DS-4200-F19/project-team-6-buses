@@ -4,6 +4,11 @@ var coords1 = [];
 var coords2 =[];
 var coords3 = [];
 var coords4 = [];
+var coords5 = [];
+var coords6 = [];
+var coords7 = [];
+var coords8 = [];
+
 var allcoords =[];
 
 var colors;
@@ -47,9 +52,29 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
             long = point["shape_pt_lon"];
             coord = [lat, long];
             coords4.push(coord);
+        } else if (point["shape_id"] === "010070") {
+            lat = point["shape_pt_lat"];
+            long = point["shape_pt_lon"];
+            coord = [lat, long];
+            coords5.push(coord);
+        }else if (point["shape_id"] === "430029") {
+            lat = point["shape_pt_lat"];
+            long = point["shape_pt_lon"];
+            coord = [lat, long];
+            coords6.push(coord);
+        }else if (point["shape_id"] === "7490023") {
+            lat = point["shape_pt_lat"];
+            long = point["shape_pt_lon"];
+            coord = [lat, long];
+            coords7.push(coord);
+        }else if (point["shape_id"] === "7510025") {
+            lat = point["shape_pt_lat"];
+            long = point["shape_pt_lon"];
+            coord = [lat, long];
+            coords8.push(coord);
         }
     }
-    allcoords.push(coords1,coords2, coords3, coords4);
+    allcoords.push(coords1,coords2, coords3, coords4, coords5, coords6, coords7, coords8);
 
     mymap = L.map('mapid').setView([42.3530, -71.0770], 13);
 
