@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="74aa3039-a7e7-42cc-a799-a959752eaa35" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization.js" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/.ipynb_checkpoints/Route_Shapes-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/data/.ipynb_checkpoints/Route_Shapes-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MBTA_GTFS_csv/RouteShapes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/MBTA_GTFS_csv/RouteShapes.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +32,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTML" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
