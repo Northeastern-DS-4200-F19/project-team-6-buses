@@ -14,6 +14,8 @@ colors= "rgb("+r+" ,"+g+","+ b+")";
 
 var mymap;
 
+var markerLayerGroup;
+
 d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     //console.log(data[4]);
     shapeData = data;
@@ -69,6 +71,8 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
 
 var routestops;
 
+var allStopMarkers = new Array();
+
 d3.csv("data/relevant_stops.csv").then(function (data) {
     routestops = data;
 }).then(function() {
@@ -80,10 +84,13 @@ d3.csv("data/relevant_stops.csv").then(function (data) {
         lat = stop["lat"];
         long = stop["long"];
         stopname = stop["Stop Name"];
+        stopID = stop["Route"];
 
-        var marker = L.circleMarker([lat,long]).setRadius(3);
+        var marker = L.circleMarker([lat,long], {title: stopID}).setRadius(3);
 
-        marker.addTo(mymap);
+        allStopMarkers.push(marker);
+
+        //marker.addTo(mymap);
 
         //click and binding pop-up function
         //marker.bindPopup(stopname).openPopup();
@@ -100,6 +107,9 @@ d3.csv("data/relevant_stops.csv").then(function (data) {
 
 
     }
+
+    markerLayerGroup = L.layerGroup(allStopMarkers);
+    markerLayerGroup.addTo(mymap);
 });
 
 
@@ -111,7 +121,52 @@ d3.csv("data/relevant_stops.csv").then(function (data) {
 
     var ChesterCoords =[];
 
-    d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
+function onClick(e) {
+    //console.log(marker._popup._content);
+    var marker_text = e.target._popup._content;
+    var routeNum = "-1";
+    if (marker_text.search("1") != -1) {
+        routeNum = "1";
+    }
+    else if (marker_text.search("43") != -1) {
+        routeNum = "43";
+    }
+    else if (marker_text.search("SL4") != -1) {
+        routeNum = "SL4";
+    }
+    else if (marker_text.search("SL5") != -1) {
+        routeNum = "SL5";
+    }
+
+    var updatedStopMarkers = new Array();
+
+    for (i=0; i<allStopMarkers.length; i++) {
+        var currentMarker = allStopMarkers[i];
+        var markerRoute = currentMarker.options.title;
+        if (markerRoute !== routeNum) {
+            currentMarker.options.__proto__.__proto__.opacity = 0.5;
+            currentMarker.on('click',function (e){ // do nothing
+                 });
+        }
+        updatedStopMarkers.push(currentMarker);
+    }
+
+    mymap.removeLayer(markerLayerGroup);
+
+    markerLayerGroup = L.layerGroup(updatedStopMarkers);
+
+    markerLayerGroup.addTo(mymap);
+
+
+    mymap.eachLayer(function(layer) {
+        if(layer.options && layer.options.pane === "markerPane") {
+            alert("Marker [" + layer.options.title + "]");
+        }
+    });
+
+}
+
+d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
 
         ChesterStops = data2;
 
@@ -132,6 +187,7 @@ d3.csv("data/relevant_stops.csv").then(function (data) {
 
             marker.addTo(mymap2);
             marker.bindPopup("<b>Route: </b>" + stopID + "<br>" + "<b>Stop Name: </b>"+ stopname).openPopup();
+            marker.on('click', onClick);
         }
     });
 
@@ -152,3 +208,5 @@ d3.csv("data/relevant_stops.csv").then(function (data) {
         id: 'mapbox.streets',
         accessToken: 'your.mapbox.access.token'})
         .addTo(mymap2);
+
+
