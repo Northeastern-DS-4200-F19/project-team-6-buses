@@ -20,6 +20,10 @@ colors= "rgb("+r+" ,"+g+","+ b+")";
 var mymap;
 
 var markerLayerGroup;
+var markerLayerGroup1;
+var markerLayerGroup43;
+var markerLayerGroupSL4;
+var markerLayerGroupSL5;
 
 d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     //console.log(data[4]);
@@ -97,6 +101,12 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
 var routestops;
 
 var allStopMarkers = new Array();
+var allStopMarkers1 = new Array();
+var allStopMarkers43 = new Array();
+var allStopMarkersSL4 = new Array();
+var allStopMarkersSL5 = new Array();
+
+
 
 d3.csv("data/relevant_stops.csv").then(function (data) {
     routestops = data;
@@ -113,7 +123,18 @@ d3.csv("data/relevant_stops.csv").then(function (data) {
 
         var marker = L.circleMarker([lat,long], {title: stopID}).setRadius(3);
 
-        allStopMarkers.push(marker);
+        if (stopID === "1") {
+            allStopMarkers1.push(marker)
+        }
+        if (stopID === "43") {
+            allStopMarkers43.push(marker)
+        }
+        if (stopID === "SL4") {
+            allStopMarkersSL4.push(marker)
+        }
+        if (stopID === "SL5") {
+            allStopMarkersSL5.push(marker)
+        }
 
         //marker.addTo(mymap);
 
@@ -133,8 +154,16 @@ d3.csv("data/relevant_stops.csv").then(function (data) {
 
     }
 
-    markerLayerGroup = L.layerGroup(allStopMarkers);
-    markerLayerGroup.addTo(mymap);
+    markerLayerGroup1 = L.layerGroup(allStopMarkers1);
+    markerLayerGroup43 = L.layerGroup(allStopMarkers43);
+    markerLayerGroupSL4 = L.layerGroup(allStopMarkersSL4);
+    markerLayerGroupSL5 = L.layerGroup(allStopMarkersSL5);
+
+    markerLayerGroup1.addTo(mymap);
+    markerLayerGroup43.addTo(mymap);
+    markerLayerGroupSL4.addTo(mymap);
+    markerLayerGroupSL5.addTo(mymap);
+
 });
 
 
@@ -150,45 +179,86 @@ function onClick(e) {
     //console.log(marker._popup._content);
     var marker_text = e.target._popup._content;
     var routeNum = "-1";
+    var routeLayerToUse;
+    var markerListToUse;
     if (marker_text.search("1") != -1) {
         routeNum = "1";
+        markerListToUse = allStopMarkers1;
+        mymap.removeLayer(markerLayerGroup43);
+        mymap.removeLayer(markerLayerGroupSL4);
+        mymap.removeLayer(markerLayerGroupSL5);
+        mymap.removeLayer(markerLayerGroup1);
+        markerLayerGroup1.addTo(mymap);
+
     }
     else if (marker_text.search("43") != -1) {
         routeNum = "43";
+        markerListToUse = allStopMarkers43;
+        mymap.removeLayer(markerLayerGroup43);
+        mymap.removeLayer(markerLayerGroup1);
+        mymap.removeLayer(markerLayerGroupSL4);
+        mymap.removeLayer(markerLayerGroupSL5);
+        markerLayerGroup43.addTo(mymap);
     }
     else if (marker_text.search("SL4") != -1) {
         routeNum = "SL4";
+        markerListToUse = allStopMarkersSL4;
+        mymap.removeLayer(markerLayerGroup1);
+        mymap.removeLayer(markerLayerGroup43);
+        mymap.removeLayer(markerLayerGroupSL4);
+        mymap.removeLayer(markerLayerGroupSL5);
+        markerLayerGroupSL4.addTo(mymap);
     }
     else if (marker_text.search("SL5") != -1) {
         routeNum = "SL5";
+        markerListToUse = allStopMarkersSL5;
+        mymap.removeLayer(markerLayerGroup1);
+        mymap.removeLayer(markerLayerGroupSL4);
+        mymap.removeLayer(markerLayerGroup43);
+        mymap.removeLayer(markerLayerGroupSL5);
+        markerLayerGroupSL5.addTo(mymap);
     }
 
     var updatedStopMarkers = new Array();
 
-    for (i=0; i<allStopMarkers.length; i++) {
-        var currentMarker = allStopMarkers[i];
+/*    for (i=0; i<markerListToUse.length; i++) {
+        var currentMarker = markerListToUse[i];
         var markerRoute = currentMarker.options.title;
-        if (markerRoute !== routeNum) {
+        if (!(markerRoute === routeNum)) {
             currentMarker.options.__proto__.__proto__.opacity = 0.5;
             currentMarker.on('click',function (e){ // do nothing
                  });
         }
+        else {
+            currentMarker.options.__proto__.__proto__.opacity = 1;
+        }
         updatedStopMarkers.push(currentMarker);
-    }
-
-    mymap.removeLayer(markerLayerGroup);
-
-    markerLayerGroup = L.layerGroup(updatedStopMarkers);
-
-    markerLayerGroup.addTo(mymap);
+    }*/
 
 
-    mymap.eachLayer(function(layer) {
+
+/*    markerLayerGroup = L.layerGroup(updatedStopMarkers);
+
+    markerLayerGroup.addTo(mymap);*/
+
+
+/*    mymap.eachLayer(function(layer) {
         if(layer.options && layer.options.pane === "markerPane") {
             alert("Marker [" + layer.options.title + "]");
         }
-    });
+    });*/
 
+}
+
+function offClick(e) {
+    mymap.removeLayer(markerLayerGroup43);
+    mymap.removeLayer(markerLayerGroupSL4);
+    mymap.removeLayer(markerLayerGroupSL5);
+    mymap.removeLayer(markerLayerGroup1);
+    markerLayerGroup1.addTo(mymap);
+    markerLayerGroup43.addTo(mymap);
+    markerLayerGroupSL4.addTo(mymap);
+    markerLayerGroupSL5.addTo(mymap);
 }
 
 d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
@@ -213,6 +283,7 @@ d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
             marker.addTo(mymap2);
             marker.bindPopup("<b>Route: </b>" + stopID + "<br>" + "<b>Stop Name: </b>"+ stopname).openPopup();
             marker.on('click', onClick);
+            marker.off('click', offClick);
         }
     });
 
