@@ -74,7 +74,7 @@
       <!-- Change viewbox to whatever you want, e.g. "0 0 1000 6000" This determines your aspect ratio and coordinate system -->
       <!--<svg id="vis-svg"
         preserveAspectRatio="xMidYMid meet" class="marks" viewBox="0 0 821 520" >-->
-      <button id="reset" onclick="offClick()" type="button" class="btn btn-danger">Map Reset</button>
+      <button id="reset" onclick="offClick()" type="button" class="btn btn-primary">Map Reset</button>
       <div class = "row">
         <div class="col" id="mapid2" style="width: 550px; height: 420px; float: left"></div>
         <div class="col" id="mapid" style="width: 550px; height: 420px; margin-left: 600px;"></div>
@@ -86,6 +86,16 @@
     
     <!-- Your writeup goes here -->
     <div class = "content-column">
+      <p>
+        What the coinciding visuals represent are a specified map of the Chester Square Neighborhood, and a local map
+        of the city of boston. On the left we have a visual that has the stops placed at geographically correct coordinates
+        within the chester square neighborhood. Each of the stops contains information about the stop name, and the route
+        it is apart of.
+      </p>
+      <p>
+        On the right, we have a visual that displays the bus routes that most primarily affect the Chester Square Neighborhood.
+        We've identified those routes as the 1, 43, SL4, and SL5 routes, due to their proximity near the Chester Square community.
+      </p>
       <!--
       <h1>Demo Video</h1>
       
@@ -97,7 +107,6 @@
          a <a href="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4">link to the video</a> instead.</p>
       </video>
         -->
-      <h1>Visualization explanation</h1>
       
       <h1>Data Analysis</h1>
       <p><em>Summary of data, data types, and data preprocessing.</em></p>
@@ -105,7 +114,16 @@
       <p><em>Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.</em></p>
 
       <p>Our data was mostly text files that we got from the MBTA GTFS data. We also manually created one csv file we needed.
-        We used python to convert the text files we needed into CSV files, and then read those files using the d3.csv method.</p>
+        We used python to convert the text files we needed into CSV files, and then read those files using the d3.csv method.
+        Most of our analysis came from mining the data through filtering techniques, where we got a better understanding of
+        the particular use, and capabilities, of the packaged GTFS data.
+      </p>
+      <p>
+        What we initially discovered was how vast and well organized the GTFS data was, however we did realize that much of it was
+        compartmentalized and we had to preform a number of joins in order to extract the exact data that we cared about. Namely, the
+        stops around the chester square neighborhood and the bus routes which they were apart of. After extracting this data, and
+        pulling their associated geographical coordinates, we were able to build out some helpful visualizations.
+      </p>
 
       <h1>Task Analysis</h1>
 
@@ -128,7 +146,7 @@
        Carousel for our Visualization Explanation! Using Bootstrap original code with our original data
        added in
 
-      <div class="container center-div">
+      <div class="align-middle container">
         <div id="myCarousel" class="carousel slide " data-ride="carousel" style="width: 80%;">
           <!-- Indicators -->
           <ol class="carousel-indicators">

@@ -9,13 +9,18 @@ var coords6 = [];
 var coords7 = [];
 var coords8 = [];
 
+var Route1coords = [];
+var Route43coords =[];
+var RouteSL4coords =[];
+var RouteSL5coords = [];
+
 var allcoords =[];
 
-var colors;
+/*
 var r = Math.floor(Math.random() * 255);
 var g = Math.floor(Math.random() * 255);
 var b = Math.floor(Math.random() * 255);
-colors= "rgb("+r+" ,"+g+","+ b+")";
+*/
 
 var mymap;
 
@@ -78,13 +83,23 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
             coords8.push(coord);
         }
     }
-    allcoords.push(coords1,coords2, coords3, coords4, coords5, coords6, coords7, coords8);
 
-    mymap = L.map('mapid').setView([42.3530, -71.0770], 13);
+    Route1coords.push(coords1, coords5);
+    Route43coords.push(coords2,coords6);
+    RouteSL4coords.push(coords3,coords7);
+    RouteSL5coords.push(coords4,coords8);
+
+    //allcoords.push(coords1,coords2, coords3, coords4, coords5, coords6, coords7, coords8);
+
+    mymap = L.map('mapid').setView([42.3530, -71.09], 13);
+
+    mymap.scrollWheelZoom.disable();
 
 
-    L.polyline(allcoords,{color:colors}).addTo(mymap);
-
+    L.polyline(Route1coords,{color:"#d0a9e8"}).addTo(mymap);
+    L.polyline(Route43coords,{color:"#d0a9e8"}).addTo(mymap);
+    L.polyline(RouteSL4coords,{color:"#d0a9e8"}).addTo(mymap);
+    L.polyline(RouteSL5coords,{color:"#d0a9e8"}).addTo(mymap);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.' +
         'png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
@@ -96,7 +111,7 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
             accessToken: 'your.mapbox.access.token'
         }).addTo(mymap);
 
-})
+});
 
 var routestops;
 
@@ -297,6 +312,7 @@ d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
     mymap2.scrollWheelZoom.disable();
     mymap2.boxZoom.disable();
     mymap2.keyboard.disable();
+    mymap2.dragging.disable();
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.' +
         'png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
