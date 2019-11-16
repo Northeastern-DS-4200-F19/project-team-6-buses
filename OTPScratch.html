@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>Scratch Stuff</title>
+
+    <style type="text/css">
+        /* 13. Basic Styling with CSS */
+
+        /* Style the lines by removing the fill and applying a stroke */
+        .line {
+            fill: none;
+            stroke: #ffab00;
+            stroke-width: 3;
+        }
+
+        .overlay {
+            fill: none;
+            pointer-events: all;
+        }
+
+        /* Style the dots by assigning a fill and stroke */
+        .dot {
+            fill: #ffab00;
+            stroke: #fff;
+        }
+
+        .focus circle {
+            fill: none;
+            stroke: steelblue;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="my_dataviz"></div>
+</body>
+
+<script src="lib/d3.v5.12.0/d3.min.js">
+
+    var OTPdata;
+
+    /*var margin = {top: 50, right: 50, bottom: 50, left: 50}
+        , width = window.innerWidth - margin.left - margin.right // Use the window's width
+        , height = window.innerHeight - margin.top - margin.bottom; // Use the window's height
+
+    //append the svg object to the body of the page
+
+    var svg = d3.select("#my_dataviz")
+        .append("svg")
+            .attr("width", width +margin.left + margin.right)
+            .attr("height",height +margin.top+margin.bottom)
+        .append("g")
+            .attr("transform","translate(" +margin.left + "," + margin.top + ")")*/
+
+    //read the data
+    d3.csv("data/OTP by month/Full_List_of_ChesterSquare_stops_OTPs.csv").then(function(d){
+        console.log([d]);
+        OTPdata = d;
+        //return {date: d3.timeParse("%Y-%m-%d")(d.date),value:d.value}
+    });
+
+
+
+
+</script>
+
+
+</html>
