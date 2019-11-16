@@ -33,36 +33,88 @@
 
 <body>
     <div id="my_dataviz"></div>
-</body>
 
-<script src="lib/d3.v5.12.0/d3.min.js">
+
+<script src="lib/d3.v5.12.0/d3.min.js"></script>
+<script>
 
     var OTPdata;
 
-    /*var margin = {top: 50, right: 50, bottom: 50, left: 50}
-        , width = window.innerWidth - margin.left - margin.right // Use the window's width
-        , height = window.innerHeight - margin.top - margin.bottom; // Use the window's height
+    var routeID;
+    var serviceDate;
+    var peak_or_offPeak;
+    var OTPNum;
+    var OTPDen;
+    var HAScore;
 
-    //append the svg object to the body of the page
+    var max = 0;
 
-    var svg = d3.select("#my_dataviz")
-        .append("svg")
-            .attr("width", width +margin.left + margin.right)
-            .attr("height",height +margin.top+margin.bottom)
-        .append("g")
-            .attr("transform","translate(" +margin.left + "," + margin.top + ")")*/
+    var parseDate = d3.timeParse("%Y-%m-%d");
+
+    var margin = {left: 50, right: 20, top: 20, bottom: 50 };
+
+    var width = 960 - margin.left - margin.right;
+    var height = 500 - margin.top - margin.bottom;
+
 
     //read the data
-    d3.csv("data/OTP by month/Full_List_of_ChesterSquare_stops_OTPs.csv").then(function(d){
-        console.log([d]);
-        OTPdata = d;
-        //return {date: d3.timeParse("%Y-%m-%d")(d.date),value:d.value}
-    });
+d3.csv("data/OTP by month/Full_List_of_ChesterSquare_stops_OTPs.csv").then(function(data){
+    OTPdata = data;
+    return
+
+}).then(function(){
+
+    var i;
+    for (i = 0; i < OTPdata.length; i++) {
+        let OTPscore = OTPdata[i];
+        routeID = OTPscore["gtfs_route_id"];
+        serviceDate = OTPscore["service_date"];
+        peak_or_offPeak = OTPscore["peak_offpeak_ind"];
+        OTPNum = OTPscore ["otp_numerator"];
+        OTPDen = OTPscore["otp_denominator"];
+        HAScore = OTPscore["Headway Analysis (Schedule Adherence) Score"];
+
+
+        var y = d3.scaleLinear()
+            .domain([0, max])
+            .range([height, 0]);
+
+        var x = d3.scaleTime()
+            .domain([minDate, maxDate])
+            .range([0, width]);
+
+        var yAxis = d3.axisLeft(y);
+        var xAxis = d3.axisBottom(x);
+
+        //var line = d3.line()
+        //.x(function(data){return x(data.date)})
+
+    }});
+
+
+
+
+    /*.row(function(d){return {date: parseDate(d.date), HA: Float32Array (d.price.trim())};})
+    .get(function(error,rows) {
+        max = d3.max(rows, function (d) {
+            return d.price;
+        });
+        minDate = d3.min(rows, function (d) {
+            return d.month;
+        });
+        maxDate = d3.max(rows, function (d) {
+            return d.month;
+        });
+
+
+    });*/
+
 
 
 
 
 </script>
+</body>
 
 
 </html>
