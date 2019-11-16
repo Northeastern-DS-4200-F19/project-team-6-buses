@@ -29,14 +29,28 @@
         }
 
     </style>
+    <script src="lib/d3.v5.12.0/d3.min.js"></script>
 </head>
 
 <body>
     <div id="my_dataviz"></div>
-
-
-<script src="lib/d3.v5.12.0/d3.min.js"></script>
 <script>
+
+    // set the dimensions and margins of the graph
+
+
+    var margin = {top: 10, right: 30, bottom: 30, left: 60},
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
 
     var OTPdata;
 
@@ -47,20 +61,14 @@
     var OTPDen;
     var HAScore;
 
-    var max = 0;
-
     var parseDate = d3.timeParse("%Y-%m-%d");
 
-    var margin = {left: 50, right: 20, top: 20, bottom: 50 };
-
-    var width = 960 - margin.left - margin.right;
-    var height = 500 - margin.top - margin.bottom;
 
 
     //read the data
 d3.csv("data/OTP by month/Full_List_of_ChesterSquare_stops_OTPs.csv").then(function(data){
     OTPdata = data;
-    return
+    //return
 
 }).then(function(){
 
@@ -73,23 +81,27 @@ d3.csv("data/OTP by month/Full_List_of_ChesterSquare_stops_OTPs.csv").then(funct
         OTPNum = OTPscore ["otp_numerator"];
         OTPDen = OTPscore["otp_denominator"];
         HAScore = OTPscore["Headway Analysis (Schedule Adherence) Score"];
+    }
 
+    var y = d3.scaleLinear()
+        .domain([HAScore.min, HAScore.max])
+        .range([0, 600]);
+    svg.append("g")
+        .call(d3.axisBottom(x));
 
-        var y = d3.scaleLinear()
-            .domain([0, max])
-            .range([height, 0]);
+    var x = d3.scaleTime()
+        .domain([serviceDate.min, serviceDate.max])
+        .range([0, 1]);
+    svg.append("g")
+        .call(d3.axisLeft(y));
 
-        var x = d3.scaleTime()
-            .domain([minDate, maxDate])
-            .range([0, width]);
-
-        var yAxis = d3.axisLeft(y);
-        var xAxis = d3.axisBottom(x);
+        //var yAxis = d3.axisLeft(y);
+        //var xAxis = d3.axisBottom(x);
 
         //var line = d3.line()
         //.x(function(data){return x(data.date)})
 
-    }});
+    });
 
 
 
