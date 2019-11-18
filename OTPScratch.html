@@ -89,7 +89,88 @@
             svg.append("g")
                 .call(d3.axisLeft(y));
 
-            svg.append("path")
+            function routeOne(all_route_data) {
+                var routeOneData = all_route_data.filter(function(d) {
+                    if (d["gtfs_route_id"] === "1")
+                    {
+                        return d;
+                    }
+                });
+
+                svg.append("path")
+                    .datum(routeOneData)
+                    .attr("fill", "none")
+                    .attr("stroke", "steelblue")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", d3.line()
+                        .x(function(d) { return x(d.date) })
+                        .y(function(d) { return y(d.headway_score) })
+                    )
+            }
+
+            function route43(all_route_data) {
+                var route43Data = all_route_data.filter(function(d) {
+                    if (d["gtfs_route_id"] === "43")
+                    {
+                        return d;
+                    }
+                });
+
+                svg.append("path")
+                    .datum(route43Data)
+                    .attr("fill", "none")
+                    .attr("stroke", "steelblue")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", d3.line()
+                        .x(function(d) { return x(d.date) })
+                        .y(function(d) { return y(d.headway_score) })
+                    )
+            }
+
+            function route749(all_route_data) {
+                var route749Data = all_route_data.filter(function(d) {
+                    if (d["gtfs_route_id"] === "749")
+                    {
+                        return d;
+                    }
+                });
+
+                svg.append("path")
+                    .datum(route749Data)
+                    .attr("fill", "none")
+                    .attr("stroke", "steelblue")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", d3.line()
+                        .x(function(d) { return x(d.date) })
+                        .y(function(d) { return y(d.headway_score) })
+                    )
+            }
+
+            function route751(all_route_data) {
+                var route751Data = all_route_data.filter(function(d) {
+                    if (d["gtfs_route_id"] === "751")
+                    {
+                        return d;
+                    }
+                });
+
+                svg.append("path")
+                    .datum(route751Data)
+                    .attr("fill", "none")
+                    .attr("stroke", "steelblue")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", d3.line()
+                        .x(function(d) { return x(d.date) })
+                        .y(function(d) { return y(d.headway_score) })
+                    )
+            }
+
+            routeOne(data);
+            route43(data);
+            route749(data);
+            route751(data);
+
+/*            svg.append("path")
                 .datum(data)
                 .attr("fill", "none")
                 .attr("stroke", "steelblue")
@@ -97,7 +178,7 @@
                 .attr("d", d3.line()
                     .x(function(d) { return x(d.date) })
                     .y(function(d) { return y(d.headway_score) })
-                )
+                )*/
 
             /*// Add the line
             svg.append("path")
