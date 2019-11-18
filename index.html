@@ -52,10 +52,6 @@
       
       
       <h1>Motivation</h1>
-      
-      <p><em>Summary of user needs and motivating questions.</em></p>
-      
-      <p><em>Expectation: There is a clear focus, and a developed explanation of the problem, and a reasonable response is proposed.</em></p>
 
       <p>In our design, we focused on assessing the delay and unreliability of the buses. We focused on the routes that pass through Chester Square.
         The problem that we wanted to solve is highlighting the areas where the buses are most delayed/unreliable, so that people in a position to improve the buses would have
@@ -98,7 +94,7 @@
         On the right, we have a visual that displays the bus routes that most primarily affect the Chester Square Neighborhood.
         We've identified those routes as the 1, 43, SL4, and SL5 routes, due to their proximity near the Chester Square community.
       </p>
-      <!--
+      
       <h1>Demo Video</h1>
       
       <p><em>Embedded MP4 demo video using the HTML5 &lt;video&gt; tag. For example, this screen recording Prof. Cody Dunne made of Mike Bostock's flexible transitions in D3 slide:</em></p>
@@ -108,12 +104,9 @@
         <p>Your browser doesn't support HTML5 video. Here is
          a <a href="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4">link to the video</a> instead.</p>
       </video>
-        -->
+      
       
       <h1>Data Analysis</h1>
-      <p><em>Summary of data, data types, and data preprocessing.</em></p>
-
-      <p><em>Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.</em></p>
 
       <p>Our data was mostly text files that we got from the MBTA GTFS data. We also manually created one csv file we needed.
         We used python to convert the text files we needed into CSV files, and then read those files using the d3.csv method.
@@ -129,24 +122,11 @@
 
       <h1>Task Analysis</h1>
 
-      <p><em>Summary of task table.</em></p>
-
-      <p><em>Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.</em></p>
-
+    
       <p>The main objective of our visualization is to explain the unreliability of the MBTA bus system in an effective manner. We first gathered and parsed through data on the expected versus actual arrival times of the bus and discovered the percent of reliability of each bus line that travels through the Chester Square Neighborhood. This analysis shows the where the MBTA should work to improve the reliability and usage of the buses. 
       </p>
 
       <h1>Design Process</h1>
-      
-      <p><em>Sketches and design choices to justify final visualization.</em></p>
-
-      <p><em>Expectation: Evidence of iterative improvement.
-      Logical discussion of design choices grounded in theory from course.
-      Discusses feedback from usability testing.</em></p>
-      <p><em>Use carousel from bootstrap to show off our PDF</em></p>
-
-       Carousel for our Visualization Explanation! Using Bootstrap original code with our original data
-       added in
 
       <div class="align-middle container">
         <div id="myCarousel" class="carousel slide " data-ride="carousel" style="width: 80%;">
@@ -167,8 +147,8 @@
                    alt="Raw" style="width:100%;">
               <div class="carousel-caption d-none d-md-block">
               
-                <h5>Our Initial Drawing</h5>
-                <p>In our initial visualization plans we drew up nine different possibilities of visualizations, however
+                <h4 style="color: black ; background-color:beige; opacity: .8">Our Initial Drawing</h4>
+                <p style="color: black ; background-color:beige; opacity: .7">In our initial visualization plans we drew up nine different possibilities of visualizations, however
                 we felt that this was the most comprehensive visual we came up with, as it included multiple visuals in
                 one layout, but also linked the two in information, and could include brushing and linking</p>
               </div>
@@ -178,8 +158,8 @@
               <img src="data/Visualization_Sketches/F19%20Project%2011%20-%20Final%20Visualization%20Sketches%20(1).jpg"
                    alt="First-Style" style="width:100%;">
               <div class="carousel-caption d-none d-md-block">
-                <h5 style="color: black">Our Initial Visualization (via Google Slides)</h5>
-                <p style="background-color:beige", "opacity: .5", style="color: rgb(124, 54, 54)">
+                <h4 style="color: black ; background-color:beige; opacity: .8">Our Initial Visualization (via Google Slides)</h4>
+                <p style="color: black; background-color:beige; opacity: .8">
                   These are the first mock-ups we made in google slides using separate shapes to get a particular idea
                   about how we would like it to be laid out. The idea was to have two visuals situated in a container
                   and have them be reflective of one another. One visual would focus on the Chester Square neighborhood
@@ -192,8 +172,8 @@
               <img src="data/Visualization_Sketches/F19%20Project%2011%20-%20Final%20Visualization%20Sketches%20(2).jpg"
                    alt="Second-Style" style="width:100%;">
               <div class="carousel-caption d-none d-md-block">
-                <h5 style="color: black">Our Second Visualization (via Google Slides)</h5>
-                <p style="color: black">
+                <h4 style="color: black ; background-color:beige; opacity: .8">Our Second Visualization (via Google Slides)</h4>
+                <p style="color: black ; background-color:beige; opacity: .8">
                   The second visualization is a more in-depth version of the first showing the interaction
                   possibilities of the visualization.
                 </p>
@@ -204,8 +184,8 @@
               <img src="data/Visualization_Sketches/F19%20Project%2011%20-%20Final%20Visualization%20Sketches%20(3).jpg"
               alt="Third-Style" style="width: 100%;">
               <div class="carousel-caption d-none d-md-block">
-                <h5 style="color: black">Our Third Visualization (via Google Slides)</h5>
-                <p style="color: black">
+                <h4 style="color: black ; background-color:beige; opacity: .8">Our Third Visualization (via Google Slides)</h4>
+                <p style="color: black ; background-color:beige; opacity: .8">
                   In the third visualization we see a specific instance of interaction when the user selects a drop-down
                   to help filter out the results and to show only the route one bus stops and the route one bus line. This
                   filtering can be done for any of the bus-routes.
@@ -217,8 +197,8 @@
               <img src="data/Visualization_Sketches/F19%20Project%2011%20-%20Final%20Visualization%20Sketches%20(4).jpg"
               alt="Fourth-Style" style="width: 100%;">
               <div class="carousel-caption d-none d-md-block">
-                <h5 style="color: black">Our Fourth Visualization (via Google Slides)</h5>
-                <p style="color: black">
+                <h4 style="color: black ; background-color:beige; opacity: .8">Our Fourth Visualization (via Google Slides)</h4>
+                <p style="color: black ; background-color:beige; opacity: .8">
                   In the fourth visualization we see a very similar interaction method but on the focus of the direction of the bus.
                   We wanted to know if there was an impactful difference on the bus routes direction and its ability to be
                   adherent to its schedule.
@@ -230,8 +210,8 @@
               <img src="data/Visualization_Sketches/F19%20Project%2011%20-%20Final%20Visualization%20Sketches%20(5).jpg"
               alt="Fifth-Style" style="width: 100%;">
               <div class="carousel-caption d-none d-md-block">
-                <h5 style="color: black">Our Fifth Visualization (via Google Slides)</h5>
-                <p style="color: black">
+                <h4 style="color: black ; background-color:beige; opacity: .8">Our Fifth Visualization (via Google Slides)</h4>
+                <p style="color: black ; background-color:beige; opacity: .8">
                   Our fifth visualization shows power-user interaction which combines the first two drop-downs of interaction but
                   in the form of interacting with the visual itself. By clicking on a particular bus route, or vice versa (and not seen
                   in the visual) clicking on the route, then you'd get information from the visual that way.
@@ -256,10 +236,22 @@
 
       <h1>Conclusion</h1>
 
-      <p><em>Short summary of work completed and areas for improvement/future-work.</em></p>
+      <p>Our visualizations representing the bus routes in the Chester Square Neighborhood aim to show the reliability of each of the lines. 
+        We were able to provide meaningful information through our analysis of data near and around this neighborhood. What we found is that 
+        the silver lines are significantly more consistent than the other bus lines. The on-time performance of the SL4 and SL5 bus lines is 
+        approximately 77% compared to the ~72% of the Route 1 bus and the ~55% of the Route 43 bus. This is significant because we are able to 
+        show that the likelihood of the bus adhering to the schedule is more likely taking one of the silver line buses. 
+      </p>
+      <p>
+        In the future, we would hope to have specific reliability for each of the stops in the Chester Square Neighborhood. The reason for this being that the current accessible OTP scores are given to the whole route, rather than each stop. Having the score for each stop would allow us to do a more in-depth study of the stops in the neighborhood. This information can be crucial and helpful to the neighborhood for their specific transportation needs, in regards to helping predict the nature of bus schedule consistency. 
+      </p>
+      <p>
+        Additionally, we would have liked to have actual bus schedule data as opposed to the currently scheduled data. The difference between the two is that what is currently accessible to the public is the bus schedule, and not details when the bus actually arrived at its destination (or stop). Access this data would allow us to forecast and possibly predict the bus reliability, at each stop, via similar methods to how on-time performance is calculated.
+      </p>
+      <p>
+        In future builds, we would like to have all of this data allowing us to create more in-depth and comprehensive visualizations. In addition to allowing us to run a larger analysis and possibly use predictive classification methods to help garner a better understanding of the entire public transit system. 
+      </p>
       
-      <p><em>Expectation: Meaningfully wraps up project and has good future directions.</em></p>
-
       
       <h1>Acknowledgements</h1>
 
