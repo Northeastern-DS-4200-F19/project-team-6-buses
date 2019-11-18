@@ -30,6 +30,11 @@ var markerLayerGroup43;
 var markerLayerGroupSL4;
 var markerLayerGroupSL5;
 
+var Route1Polyline;
+var Route43Polyline;
+var RouteSL4Polyline;
+var RouteSL5Polyline;
+
 d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     //console.log(data[4]);
     shapeData = data;
@@ -96,10 +101,10 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     mymap.scrollWheelZoom.disable();
 
 
-    L.polyline(Route1coords,{color:"#d0a9e8"}).addTo(mymap);
-    L.polyline(Route43coords,{color:"#d0a9e8"}).addTo(mymap);
-    L.polyline(RouteSL4coords,{color:"#d0a9e8"}).addTo(mymap);
-    L.polyline(RouteSL5coords,{color:"#d0a9e8"}).addTo(mymap);
+    Route1Polyline = L.polyline(Route1coords,{color:"#d0a9e8"}).addTo(mymap);
+    Route43Polyline = L.polyline(Route43coords,{color:"#d0a9e8"}).addTo(mymap);
+    RouteSL4Polyline = L.polyline(RouteSL4coords,{color:"#d0a9e8"}).addTo(mymap);
+    RouteSL5Polyline = L.polyline(RouteSL5coords,{color:"#d0a9e8"}).addTo(mymap);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.' +
         'png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
@@ -204,6 +209,10 @@ function onClick(e) {
         mymap.removeLayer(markerLayerGroupSL5);
         mymap.removeLayer(markerLayerGroup1);
         markerLayerGroup1.addTo(mymap);
+        Route43Polyline.setStyle({color: '#8f8c8c'});
+        RouteSL5Polyline.setStyle({color: '#8f8c8c'});
+        RouteSL4Polyline.setStyle({color: '#8f8c8c'});
+        Route1Polyline.setStyle({color:"#d0a9e8"});
 
     }
     else if (marker_text.search("43") != -1) {
@@ -214,6 +223,11 @@ function onClick(e) {
         mymap.removeLayer(markerLayerGroupSL4);
         mymap.removeLayer(markerLayerGroupSL5);
         markerLayerGroup43.addTo(mymap);
+        Route1Polyline.setStyle({color: '#8f8c8c'});
+        RouteSL5Polyline.setStyle({color: '#8f8c8c'});
+        RouteSL4Polyline.setStyle({color: '#8f8c8c'});
+        Route43Polyline.setStyle({color:"#d0a9e8"});
+
     }
     else if (marker_text.search("SL4") != -1) {
         routeNum = "SL4";
@@ -223,6 +237,11 @@ function onClick(e) {
         mymap.removeLayer(markerLayerGroupSL4);
         mymap.removeLayer(markerLayerGroupSL5);
         markerLayerGroupSL4.addTo(mymap);
+        Route43Polyline.setStyle({color: '#8f8c8c'});
+        Route1Polyline.setStyle({color: '#8f8c8c'});
+        RouteSL5Polyline.setStyle({color: '#8f8c8c'});
+        RouteSL4Polyline.setStyle({color:"#d0a9e8"});
+
     }
     else if (marker_text.search("SL5") != -1) {
         routeNum = "SL5";
@@ -232,6 +251,11 @@ function onClick(e) {
         mymap.removeLayer(markerLayerGroup43);
         mymap.removeLayer(markerLayerGroupSL5);
         markerLayerGroupSL5.addTo(mymap);
+        Route43Polyline.setStyle({color: '#8f8c8c'});
+        RouteSL4Polyline.setStyle({color: '#8f8c8c'});
+        Route1Polyline.setStyle({color: '#8f8c8c'});
+        RouteSL5Polyline.setStyle({color:"#d0a9e8"});
+
     }
 
     var updatedStopMarkers = new Array();
@@ -274,6 +298,11 @@ function offClick(e) {
     markerLayerGroup43.addTo(mymap);
     markerLayerGroupSL4.addTo(mymap);
     markerLayerGroupSL5.addTo(mymap);
+    Route1Polyline.setStyle({color:"#d0a9e8"});
+    Route43Polyline.setStyle({color:"#d0a9e8"});
+    RouteSL5Polyline.setStyle({color:"#d0a9e8"});
+    RouteSL4Polyline.setStyle({color:"#d0a9e8"});
+
 }
 
 d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
