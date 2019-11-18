@@ -39,8 +39,8 @@
     // set the dimensions and margins of the graph
 
 
-    var margin = {top: 10, right: 30, bottom: 30, left: 60},
-        width = 460 - margin.left - margin.right,
+    var margin = {top: 10, right: 150, bottom: 30, left: 60},
+        width = 460 + margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
@@ -52,16 +52,6 @@
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
 
-    var OTPdata;
-
-    var routeID;
-    var serviceDate;
-    var peak_or_offPeak;
-    var OTPNum;
-    var OTPDen;
-    var HAScore;
-
-    var parseDate = d3.timeParse("%Y-%m-%d");
 
     d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
 
@@ -76,18 +66,26 @@
 
             // Add X axis --> it is a date format
             var x = d3.scaleTime()
-                .domain(d3.extent(data, function(d) { return d.date; }))
-                .range([ 0, width ]);
+                .domain([d3.min(data, function(d){return d.date}),d3.max(data, function(d){return d.date})])
+                    //d3.extent(data, function(d) { return d.date }))
+                .range([ 0, width]);
+
+            var x_axis = d3.axisBottom().scale(x);
+
             svg.append("g")
-                .attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x));
+                .attr("transform"
+                    , "translate(0," + height + ")")
+                .call(x_axis);
 
             // Add Y axis
             var y = d3.scaleLinear()
-                .domain([0, d3.max(data, function(d) { return +d.headway_score; })])
+                .domain([d3.min(data, function(d) {return +d.headway_score})-.1, d3.max(data, function(d) { return +d.headway_score; })+.1])
                 .range([ height, 0 ]);
+
+            var y_axis = d3.axisLeft().scale(y);
+
             svg.append("g")
-                .call(d3.axisLeft(y));
+                .call(y_axis);
 
             function routeOne(all_route_data) {
                 var routeOneData = all_route_data.filter(function(d) {
