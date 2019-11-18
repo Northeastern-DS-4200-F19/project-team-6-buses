@@ -39,8 +39,8 @@
     // set the dimensions and margins of the graph
 
 
-    var margin = {top: 10, right: 150, bottom: 30, left: 60},
-        width = 460 + margin.left - margin.right,
+    var margin = {top: 10, right: 52, bottom: 30, left: 60},
+        width = 560 + margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
@@ -58,19 +58,27 @@
 
         // When reading the csv, I must format variables:
         function(d){
-            return { gtfs_route_id: d.gtfs_route_id, date : d.month, headway_score : d.headway_score }
+            return { gtfs_route_id: d.gtfs_route_id, month : d.month, headway_score : d.headway_score }
         },
 
         // Now I can use this dataset:
         function(data) {
 
+            x_min = d3.min(data, function(d){return +d.month});
+            x_max = d3.max(data, function(d){return +d.month});
+
+            var formatter = d3.timeFormat("%B");
+            var jan = 1;
+            var name = formatter(1);
+
             // Add X axis --> it is a date format
             var x = d3.scaleTime()
-                .domain([d3.min(data, function(d){return d.date}),d3.max(data, function(d){return d.date})])
+                .domain([new Date(2018, 0, 1), new Date(2018, 11, 1)])
                     //d3.extent(data, function(d) { return d.date }))
-                .range([ 0, width]);
+                .range([0, width]);
 
-            var x_axis = d3.axisBottom().scale(x);
+            var x_axis = d3.axisBottom().scale(x)
+                .tickFormat(d3.timeFormat("%B"));
 
             svg.append("g")
                 .attr("transform"
@@ -101,7 +109,7 @@
                     .attr("stroke", "steelblue")
                     .attr("stroke-width", 1.5)
                     .attr("d", d3.line()
-                        .x(function(d) { return x(d.date) })
+                        .x(function(d) { return x(new Date(2018, d.month - 1, 1)) })
                         .y(function(d) { return y(d.headway_score) })
                     )
             }
@@ -120,7 +128,7 @@
                     .attr("stroke", "steelblue")
                     .attr("stroke-width", 1.5)
                     .attr("d", d3.line()
-                        .x(function(d) { return x(d.date) })
+                        .x(function(d) { return x(new Date(2018, d.month - 1, 1)) })
                         .y(function(d) { return y(d.headway_score) })
                     )
             }
@@ -139,7 +147,7 @@
                     .attr("stroke", "steelblue")
                     .attr("stroke-width", 1.5)
                     .attr("d", d3.line()
-                        .x(function(d) { return x(d.date) })
+                        .x(function(d) { return x(new Date(2018, d.month - 1, 1)) })
                         .y(function(d) { return y(d.headway_score) })
                     )
             }
@@ -158,7 +166,7 @@
                     .attr("stroke", "steelblue")
                     .attr("stroke-width", 1.5)
                     .attr("d", d3.line()
-                        .x(function(d) { return x(d.date) })
+                        .x(function(d) { return x(new Date(2018, d.month - 1, 1)) })
                         .y(function(d) { return y(d.headway_score) })
                     )
             }
