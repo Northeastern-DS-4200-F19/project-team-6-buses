@@ -29,7 +29,7 @@
         }
 
     </style>
-    <script src="lib/d3.v5.12.0/d3.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
 </head>
 
 <body>
@@ -63,9 +63,90 @@
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 
+    d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
 
 
-    //read the data
+        // When reading the csv, I must format variables:
+        function(d){
+            return { gtfs_route_id: d.gtfs_route_id, date : d.month, headway_score : d.headway_score }
+        },
+
+        // Now I can use this dataset:
+        function(data) {
+
+            // Add X axis --> it is a date format
+            var x = d3.scaleTime()
+                .domain(d3.extent(data, function(d) { return d.date; }))
+                .range([ 0, width ]);
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            // Add Y axis
+            var y = d3.scaleLinear()
+                .domain([0, d3.max(data, function(d) { return +d.headway_score; })])
+                .range([ height, 0 ]);
+            svg.append("g")
+                .call(d3.axisLeft(y));
+
+            svg.append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "steelblue")
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                    .x(function(d) { return x(d.date) })
+                    .y(function(d) { return y(d.headway_score) })
+                )
+
+            /*// Add the line
+            svg.append("path")
+                .datum(data)
+                .filter(function(d) { return d.gtfs_route_id === "1"})
+                .attr("fill", "none")
+                .attr("stroke", "steelblue")
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                    .x(function(d) { return x(d.date) })
+                    .y(function(d) { return y(d.headway_score) })
+                )
+
+            svg.append("path")
+                .datum(data)
+                .filter(function(d) { return d.gtfs_route_id === "43"})
+                .attr("fill", "none")
+                .attr("stroke", "steelblue")
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                    .x(function(d) { return x(d.date) })
+                    .y(function(d) { return y(d.headway_score) })
+                )
+
+            svg.append("path")
+                .datum(data)
+                .filter(function(d) { return d.gtfs_route_id === "749"})
+                .attr("fill", "none")
+                .attr("stroke", "steelblue")
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                    .x(function(d) { return x(d.date) })
+                    .y(function(d) { return y(d.headway_score) })
+                )
+
+            svg.append("path")
+                .datum(data)
+                .filter(function(d) { return d.gtfs_route_id === "751"})
+                .attr("fill", "none")
+                .attr("stroke", "steelblue")
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                    .x(function(d) { return x(d.date) })
+                    .y(function(d) { return y(d.headway_score) })
+                )*/
+
+        })
+
+/*    //read the data
 d3.csv("data/OTP by month/Full_List_of_ChesterSquare_stops_OTPs.csv").then(function(data){
     OTPdata = data;
     //return
@@ -101,7 +182,7 @@ d3.csv("data/OTP by month/Full_List_of_ChesterSquare_stops_OTPs.csv").then(funct
         //var line = d3.line()
         //.x(function(data){return x(data.date)})
 
-    });
+    });*/
 
 
 

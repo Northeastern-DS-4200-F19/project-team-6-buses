@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74aa3039-a7e7-42cc-a799-a959752eaa35" name="Default Changelist" comment="" />
+    <list default="true" id="74aa3039-a7e7-42cc-a799-a959752eaa35" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/OTPScratch.html" beforeDir="false" afterPath="$PROJECT_DIR$/OTPScratch.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
