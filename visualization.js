@@ -91,8 +91,8 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
 
     Route1coords.push(coords1, coords5);
     Route43coords.push(coords2,coords6);
-    RouteSL4coords.push(coords3,coords7);
-    RouteSL5coords.push(coords4,coords8);
+    RouteSL4coords.push(coords4,coords8);
+    RouteSL5coords.push(coords3,coords7);
 
     //allcoords.push(coords1,coords2, coords3, coords4, coords5, coords6, coords7, coords8);
 
@@ -101,10 +101,10 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     mymap.scrollWheelZoom.disable();
 
 
-    Route1Polyline = L.polyline(Route1coords,{color:"#d0a9e8"}).addTo(mymap);
-    Route43Polyline = L.polyline(Route43coords,{color:"#d0a9e8"}).addTo(mymap);
-    RouteSL4Polyline = L.polyline(RouteSL4coords,{color:"#d0a9e8"}).addTo(mymap);
-    RouteSL5Polyline = L.polyline(RouteSL5coords,{color:"#d0a9e8"}).addTo(mymap);
+    Route1Polyline = L.polyline(Route1coords,{color:"#66c2a5"}).addTo(mymap);
+    Route43Polyline = L.polyline(Route43coords,{color:"#fc8d62"}).addTo(mymap);
+    RouteSL4Polyline = L.polyline(RouteSL4coords,{color:"#e78ac3"}).addTo(mymap);
+    RouteSL5Polyline = L.polyline(RouteSL5coords,{color:"#8da0cb"}).addTo(mymap);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.' +
         'png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
@@ -212,7 +212,7 @@ function onClick(e) {
         Route43Polyline.setStyle({color: '#8f8c8c'});
         RouteSL5Polyline.setStyle({color: '#8f8c8c'});
         RouteSL4Polyline.setStyle({color: '#8f8c8c'});
-        Route1Polyline.setStyle({color:"#d0a9e8"});
+        Route1Polyline.setStyle({color:"#66c2a5"});
 
     }
     else if (marker_text.search("43") != -1) {
@@ -226,7 +226,7 @@ function onClick(e) {
         Route1Polyline.setStyle({color: '#8f8c8c'});
         RouteSL5Polyline.setStyle({color: '#8f8c8c'});
         RouteSL4Polyline.setStyle({color: '#8f8c8c'});
-        Route43Polyline.setStyle({color:"#d0a9e8"});
+        Route43Polyline.setStyle({color:"#fc8d62"});
 
     }
     else if (marker_text.search("SL4") != -1) {
@@ -240,7 +240,7 @@ function onClick(e) {
         Route43Polyline.setStyle({color: '#8f8c8c'});
         Route1Polyline.setStyle({color: '#8f8c8c'});
         RouteSL5Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL4Polyline.setStyle({color:"#d0a9e8"});
+        RouteSL4Polyline.setStyle({color:"#e78ac3"});
 
     }
     else if (marker_text.search("SL5") != -1) {
@@ -254,7 +254,7 @@ function onClick(e) {
         Route43Polyline.setStyle({color: '#8f8c8c'});
         RouteSL4Polyline.setStyle({color: '#8f8c8c'});
         Route1Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL5Polyline.setStyle({color:"#d0a9e8"});
+        RouteSL5Polyline.setStyle({color:"#8da0cb"});
 
     }
 
@@ -298,10 +298,10 @@ function offClick(e) {
     markerLayerGroup43.addTo(mymap);
     markerLayerGroupSL4.addTo(mymap);
     markerLayerGroupSL5.addTo(mymap);
-    Route1Polyline.setStyle({color:"#d0a9e8"});
-    Route43Polyline.setStyle({color:"#d0a9e8"});
-    RouteSL5Polyline.setStyle({color:"#d0a9e8"});
-    RouteSL4Polyline.setStyle({color:"#d0a9e8"});
+    Route1Polyline.setStyle({color:"#66c2a5"});
+    Route43Polyline.setStyle({color:"#fc8d62"});
+    RouteSL4Polyline.setStyle({color:"#e78ac3"});
+    RouteSL5Polyline.setStyle({color:"#8da0cb"});
 
 }
 
