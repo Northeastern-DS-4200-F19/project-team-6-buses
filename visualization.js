@@ -201,7 +201,7 @@ function onClick(e) {
     var routeNum = "-1";
     var routeLayerToUse;
     var markerListToUse;
-    if (marker_text.search("1") != -1) {
+    if (marker_text.search("1") !== -1) {
         routeNum = "1";
         markerListToUse = allStopMarkers1;
         mymap.removeLayer(markerLayerGroup43);
@@ -219,9 +219,21 @@ function onClick(e) {
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
+        d3.select("#bar_route-1").style("opacity", "1");
+        d3.select("#bar_route-43").style("opacity", "1");
+        d3.select("#bar_route-749").style("opacity", "1");
+        d3.select("#bar_route-751").style("opacity", "1");
+
+
         d3.select("#route_43").style("opacity", "0.2");
         d3.select("#route_SL4").style("opacity", "0.2");
         d3.select("#route_SL5").style("opacity", "0.2");
+
+        d3.select("#bar_route-43").style("opacity", "0.2");
+        d3.select("#bar_route-749").style("opacity", "0.2");
+        d3.select("#bar_route-751").style("opacity", "0.2");
+
+
 
     }
     else if (marker_text.search("43") != -1) {
@@ -242,9 +254,18 @@ function onClick(e) {
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
+        d3.select("#bar_route-1").style("opacity", "1");
+        d3.select("#bar_route-43").style("opacity", "1");
+        d3.select("#bar_route-749").style("opacity", "1");
+        d3.select("#bar_route-751").style("opacity", "1");
+
         d3.select("#route_1").style("opacity", "0.2");
         d3.select("#route_SL4").style("opacity", "0.2");
         d3.select("#route_SL5").style("opacity", "0.2");
+
+        d3.select("#bar_route-1").style("opacity", "0.2");
+        d3.select("#bar_route-749").style("opacity", "0.2");
+        d3.select("#bar_route-751").style("opacity", "0.2");
 
     }
     else if (marker_text.search("SL4") != -1) {
@@ -265,9 +286,18 @@ function onClick(e) {
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
+        d3.select("#bar_route-1").style("opacity", "1");
+        d3.select("#bar_route-43").style("opacity", "1");
+        d3.select("#bar_route-749").style("opacity", "1");
+        d3.select("#bar_route-751").style("opacity", "1");
+
         d3.select("#route_43").style("opacity", "0.2");
         d3.select("#route_1").style("opacity", "0.2");
         d3.select("#route_SL5").style("opacity", "0.2");
+
+        d3.select("#bar_route-43").style("opacity", "0.2");
+        d3.select("#bar_route-1").style("opacity", "0.2");
+        d3.select("#bar_route-751").style("opacity", "0.2");
 
     }
     else if (marker_text.search("SL5") != -1) {
@@ -288,9 +318,18 @@ function onClick(e) {
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
+        d3.select("#bar_route-1").style("opacity", "1");
+        d3.select("#bar_route-43").style("opacity", "1");
+        d3.select("#bar_route-749").style("opacity", "1");
+        d3.select("#bar_route-751").style("opacity", "1");
+
         d3.select("#route_43").style("opacity", "0.2");
         d3.select("#route_SL4").style("opacity", "0.2");
         d3.select("#route_1").style("opacity", "0.2");
+
+        d3.select("#bar_route-43").style("opacity", "0.2");
+        d3.select("#bar_route-749").style("opacity", "0.2");
+        d3.select("#bar_route-1").style("opacity", "0.2");
 
     }
 
@@ -356,8 +395,8 @@ d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
         for(b =0; b < ChesterStops.length; b++){
 
             var stops = ChesterStops[b];
-            lat = stops["lat"];
-            long = stops["long"];
+            lat = stops["Shape_pt_lat"];
+            long = stops["Shape_pt_lon"];
             stopname = stops["StopName"];
             stopID = stops["Shape_id"];
 
