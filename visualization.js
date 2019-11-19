@@ -219,19 +219,19 @@ function onClick(e) {
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
-        d3.select("#bar_route-1").style("opacity", "1");
-        d3.select("#bar_route-43").style("opacity", "1");
-        d3.select("#bar_route-749").style("opacity", "1");
-        d3.select("#bar_route-751").style("opacity", "1");
+        d3.selectAll("#bar_route-1").style("fill", "#66C2A5");
+        d3.selectAll("#bar_route-43").style("fill", "#fc8d62");
+        d3.selectAll("#bar_route-751").style("fill", "#8da0cb");
+        d3.selectAll("#bar_route-749").style("fill", "#e78ac3");
 
 
         d3.select("#route_43").style("opacity", "0.2");
         d3.select("#route_SL4").style("opacity", "0.2");
         d3.select("#route_SL5").style("opacity", "0.2");
 
-        d3.select("#bar_route-43").style("opacity", "0.2");
-        d3.select("#bar_route-749").style("opacity", "0.2");
-        d3.select("#bar_route-751").style("opacity", "0.2");
+        d3.selectAll("#bar_route-43").style("fill", "#828583");
+        d3.selectAll("#bar_route-749").style("fill", "#828583");
+        d3.selectAll("#bar_route-751").style("fill", "#828583");
 
 
 
@@ -254,18 +254,18 @@ function onClick(e) {
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
-        d3.select("#bar_route-1").style("opacity", "1");
-        d3.select("#bar_route-43").style("opacity", "1");
-        d3.select("#bar_route-749").style("opacity", "1");
-        d3.select("#bar_route-751").style("opacity", "1");
+        d3.selectAll("#bar_route-1").style("fill", "#66C2A5");
+        d3.selectAll("#bar_route-43").style("fill", "#fc8d62");
+        d3.selectAll("#bar_route-751").style("fill", "#8da0cb");
+        d3.selectAll("#bar_route-749").style("fill", "#e78ac3");
 
         d3.select("#route_1").style("opacity", "0.2");
         d3.select("#route_SL4").style("opacity", "0.2");
         d3.select("#route_SL5").style("opacity", "0.2");
 
-        d3.select("#bar_route-1").style("opacity", "0.2");
-        d3.select("#bar_route-749").style("opacity", "0.2");
-        d3.select("#bar_route-751").style("opacity", "0.2");
+        d3.selectAll("#bar_route-1").style("fill", "#828583");
+        d3.selectAll("#bar_route-749").style("fill", "#828583");
+        d3.selectAll("#bar_route-751").style("fill", "#828583");
 
     }
     else if (marker_text.search("SL4") != -1) {
@@ -286,18 +286,18 @@ function onClick(e) {
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
-        d3.select("#bar_route-1").style("opacity", "1");
-        d3.select("#bar_route-43").style("opacity", "1");
-        d3.select("#bar_route-749").style("opacity", "1");
-        d3.select("#bar_route-751").style("opacity", "1");
+        d3.selectAll("#bar_route-1").style("fill", "#66C2A5");
+        d3.selectAll("#bar_route-43").style("fill", "#fc8d62");
+        d3.selectAll("#bar_route-751").style("fill", "#8da0cb");
+        d3.selectAll("#bar_route-749").style("fill", "#e78ac3");
 
         d3.select("#route_43").style("opacity", "0.2");
         d3.select("#route_1").style("opacity", "0.2");
         d3.select("#route_SL5").style("opacity", "0.2");
 
-        d3.select("#bar_route-43").style("opacity", "0.2");
-        d3.select("#bar_route-1").style("opacity", "0.2");
-        d3.select("#bar_route-751").style("opacity", "0.2");
+        d3.selectAll("#bar_route-1").style("fill", "#828583");
+        d3.selectAll("#bar_route-43").style("fill", "#828583");
+        d3.selectAll("#bar_route-751").style("fill", "#828583");
 
     }
     else if (marker_text.search("SL5") != -1) {
@@ -318,18 +318,18 @@ function onClick(e) {
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
-        d3.select("#bar_route-1").style("opacity", "1");
-        d3.select("#bar_route-43").style("opacity", "1");
-        d3.select("#bar_route-749").style("opacity", "1");
-        d3.select("#bar_route-751").style("opacity", "1");
+        d3.selectAll("#bar_route-1").style("fill", "#66C2A5");
+        d3.selectAll("#bar_route-43").style("fill", "#fc8d62");
+        d3.selectAll("#bar_route-751").style("fill", "#8da0cb");
+        d3.selectAll("#bar_route-749").style("fill", "#e78ac3");
 
         d3.select("#route_43").style("opacity", "0.2");
         d3.select("#route_SL4").style("opacity", "0.2");
         d3.select("#route_1").style("opacity", "0.2");
 
-        d3.select("#bar_route-43").style("opacity", "0.2");
-        d3.select("#bar_route-749").style("opacity", "0.2");
-        d3.select("#bar_route-1").style("opacity", "0.2");
+        d3.selectAll("#bar_route-1").style("fill", "#828583");
+        d3.selectAll("#bar_route-749").style("fill", "#828583");
+        d3.selectAll("#bar_route-43").style("fill", "#828583");
 
     }
 
