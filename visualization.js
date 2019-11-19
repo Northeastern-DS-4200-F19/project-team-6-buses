@@ -214,6 +214,15 @@ function onClick(e) {
         RouteSL4Polyline.setStyle({color: '#8f8c8c'});
         Route1Polyline.setStyle({color:"#66c2a5"});
 
+        d3.select("#route_43").style("opacity", "1");
+        d3.select("#route_SL4").style("opacity", "1");
+        d3.select("#route_1").style("opacity", "1");
+        d3.select("#route_SL5").style("opacity", "1");
+
+        d3.select("#route_43").style("opacity", "0.2");
+        d3.select("#route_SL4").style("opacity", "0.2");
+        d3.select("#route_SL5").style("opacity", "0.2");
+
     }
     else if (marker_text.search("43") != -1) {
         routeNum = "43";
@@ -227,6 +236,15 @@ function onClick(e) {
         RouteSL5Polyline.setStyle({color: '#8f8c8c'});
         RouteSL4Polyline.setStyle({color: '#8f8c8c'});
         Route43Polyline.setStyle({color:"#fc8d62"});
+
+        d3.select("#route_43").style("opacity", "1");
+        d3.select("#route_SL4").style("opacity", "1");
+        d3.select("#route_1").style("opacity", "1");
+        d3.select("#route_SL5").style("opacity", "1");
+
+        d3.select("#route_1").style("opacity", "0.2");
+        d3.select("#route_SL4").style("opacity", "0.2");
+        d3.select("#route_SL5").style("opacity", "0.2");
 
     }
     else if (marker_text.search("SL4") != -1) {
@@ -242,6 +260,15 @@ function onClick(e) {
         RouteSL5Polyline.setStyle({color: '#8f8c8c'});
         RouteSL4Polyline.setStyle({color:"#e78ac3"});
 
+        d3.select("#route_43").style("opacity", "1");
+        d3.select("#route_SL4").style("opacity", "1");
+        d3.select("#route_1").style("opacity", "1");
+        d3.select("#route_SL5").style("opacity", "1");
+
+        d3.select("#route_43").style("opacity", "0.2");
+        d3.select("#route_1").style("opacity", "0.2");
+        d3.select("#route_SL5").style("opacity", "0.2");
+
     }
     else if (marker_text.search("SL5") != -1) {
         routeNum = "SL5";
@@ -255,6 +282,15 @@ function onClick(e) {
         RouteSL4Polyline.setStyle({color: '#8f8c8c'});
         Route1Polyline.setStyle({color: '#8f8c8c'});
         RouteSL5Polyline.setStyle({color:"#8da0cb"});
+
+        d3.select("#route_43").style("opacity", "1");
+        d3.select("#route_SL4").style("opacity", "1");
+        d3.select("#route_1").style("opacity", "1");
+        d3.select("#route_SL5").style("opacity", "1");
+
+        d3.select("#route_43").style("opacity", "0.2");
+        d3.select("#route_SL4").style("opacity", "0.2");
+        d3.select("#route_1").style("opacity", "0.2");
 
     }
 
@@ -302,6 +338,10 @@ function offClick(e) {
     Route43Polyline.setStyle({color:"#fc8d62"});
     RouteSL4Polyline.setStyle({color:"#e78ac3"});
     RouteSL5Polyline.setStyle({color:"#8da0cb"});
+    d3.select("#route_43").style("opacity", "1");
+    d3.select("#route_SL4").style("opacity", "1");
+    d3.select("#route_1").style("opacity", "1");
+    d3.select("#route_SL5").style("opacity", "1");
 
 }
 
