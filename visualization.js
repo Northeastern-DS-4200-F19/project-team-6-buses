@@ -395,8 +395,8 @@ d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
         for(b =0; b < ChesterStops.length; b++){
 
             var stops = ChesterStops[b];
-            lat = stops["Shape_pt_lat"];
-            long = stops["Shape_pt_lon"];
+            lat = stops["lat"];
+            long = stops["long"];
             stopname = stops["StopName"];
             stopID = stops["Shape_id"];
 

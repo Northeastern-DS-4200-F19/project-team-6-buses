@@ -1,8 +1,8 @@
 // set the dimensions and margins of the graph
 
 
-var margin = {top: 10, right: 52, bottom: 30, left: 60},
-    width = 560 + margin.left - margin.right,
+var margin = {top: 40, right: 32, bottom: 30, left: 50},
+    width = 510 + margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -78,6 +78,15 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
             .attr("dy", "1em")
             .style("text-anchor", "middle")
             .text("Headway Score");
+
+        //Title of Graph
+        svg.append("text")
+            .attr("x", (width / 2))
+            .attr("y", 0 - (margin.top / 2))
+            .attr("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("text-decoration", "underline")
+            .text("Schedule Adherence Over Time");
 
         function routeOne(all_route_data) {
             var routeOneData = all_route_data.filter(function (d) {
