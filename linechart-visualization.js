@@ -75,7 +75,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
             svg.append("path")
                 .datum(routeOneData)
                 .attr("fill", "none")
-                .attr("stroke", "steelblue")
+                .attr("stroke", "#66C2A5")
                 .attr("stroke-width", 1.5)
                 .attr("d", d3.line()
                     .x(function (d) {
@@ -97,7 +97,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
             svg.append("path")
                 .datum(route43Data)
                 .attr("fill", "none")
-                .attr("stroke", "steelblue")
+                .attr("stroke", "#fc8d62")
                 .attr("stroke-width", 1.5)
                 .attr("d", d3.line()
                     .x(function (d) {
@@ -119,7 +119,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
             svg.append("path")
                 .datum(route749Data)
                 .attr("fill", "none")
-                .attr("stroke", "steelblue")
+                .attr("stroke", "#e78ac3")
                 .attr("stroke-width", 1.5)
                 .attr("d", d3.line()
                     .x(function (d) {
@@ -141,7 +141,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
             svg.append("path")
                 .datum(route751Data)
                 .attr("fill", "none")
-                .attr("stroke", "steelblue")
+                .attr("stroke", "#8da0cb")
                 .attr("stroke-width", 1.5)
                 .attr("d", d3.line()
                     .x(function (d) {
