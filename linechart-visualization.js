@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 
 
-var margin = {top: 40, right: 32, bottom: 30, left: 50},
+var margin = {top: 40, right: 32, bottom: 75, left: 50},
     width = 510 + margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -46,10 +46,19 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
         var x_axis = d3.axisBottom().scale(x)
             .tickFormat(d3.timeFormat("%B"));
 
+        //svg.select(x_axis)
+            //.attr("transform", "rotate(-65)");
+
         svg.append("g")
-            .attr("transform"
+            .attr("class","axis")
+                .attr("transform"
                 , "translate(0," + height + ")")
-            .call(x_axis);
+            .call(x_axis)
+                .selectAll("text")
+                .style("text-anchor","end")
+                .attr("dx","-.8em")
+                .attr("dy",".15em")
+                .attr("transform", "rotate(-65)");
 
         svg.append("text")
             .attr("transform",

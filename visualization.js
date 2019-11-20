@@ -101,10 +101,37 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     mymap.scrollWheelZoom.disable();
 
 
-    Route1Polyline = L.polyline(Route1coords,{color:"#66c2a5"}).addTo(mymap);
-    Route43Polyline = L.polyline(Route43coords,{color:"#fc8d62"}).addTo(mymap);
-    RouteSL4Polyline = L.polyline(RouteSL4coords,{color:"#e78ac3"}).addTo(mymap);
-    RouteSL5Polyline = L.polyline(RouteSL5coords,{color:"#8da0cb"}).addTo(mymap);
+    Route1Polyline = L.polyline(Route1coords,{color:route1color});
+    Route1Polyline.on('click',onClick);
+    Route1Polyline.setStyle({
+        weight: 5
+    });
+    //Route1Polyline.off('click',offClick);
+    Route1Polyline.addTo(mymap);
+
+    Route43Polyline = L.polyline(Route43coords,{color:route43color});
+    Route43Polyline.on('click',onClick);
+    Route43Polyline.setStyle({
+        weight: 5
+    });
+    //Route43Polyline.off('click',offClick);
+    Route43Polyline.addTo(mymap);
+
+    RouteSL4Polyline = L.polyline(RouteSL4coords,{color:routeSL4color});
+    RouteSL4Polyline.on('click',onClick);
+    RouteSL4Polyline.setStyle({
+        weight: 5
+    });
+    //RouteSL4Polyline.off('click',offClick);
+    RouteSL4Polyline.addTo(mymap);
+
+    RouteSL5Polyline = L.polyline(RouteSL5coords,{color:routeSL5color});
+    RouteSL5Polyline.on('click',onClick);
+    RouteSL5Polyline.setStyle({
+        weight: 5
+    });
+    //RouteSL5Polyline.off('click',offClick);
+    RouteSL5Polyline.addTo(mymap);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.' +
         'png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
@@ -194,14 +221,35 @@ d3.csv("data/relevant_stops.csv").then(function (data) {
     var ChesterStops;
 
     var ChesterCoords =[];
+    
+    var route1color;
+    var route43color;
+    var routeSL4color;
+    var routeSL5color;
+    
+    route1color = "#66c2a5";
+    route43color = "#fc8d62";
+    routeSL4color = "#e78ac3";
+    routeSL5color = "#8da0cb";
 
 function onClick(e) {
     //console.log(marker._popup._content);
-    var marker_text = e.target._popup._content;
+    var marker_text = "";
+    try {
+        marker_text = e.target._popup._content;
+    } catch (Error) {
+        // do nothing
+    }
+    var polyline_color = "";
+    try {
+        polyline_color = e.target.options.color;
+    } catch (Error) {
+        // do nothing
+    }
     var routeNum = "-1";
     var routeLayerToUse;
     var markerListToUse;
-    if (marker_text.search("1") !== -1) {
+    if ((marker_text !== "" && marker_text.search("1") !== -1) || (polyline_color !== "" && polyline_color===route1color)) {
         routeNum = "1";
         markerListToUse = allStopMarkers1;
         mymap.removeLayer(markerLayerGroup43);
@@ -209,20 +257,24 @@ function onClick(e) {
         mymap.removeLayer(markerLayerGroupSL5);
         mymap.removeLayer(markerLayerGroup1);
         markerLayerGroup1.addTo(mymap);
-        Route43Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL5Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL4Polyline.setStyle({color: '#8f8c8c'});
-        Route1Polyline.setStyle({color:"#66c2a5"});
+        //Route43Polyline.setStyle({color: '#8f8c8c'});
+        //RouteSL5Polyline.setStyle({color: '#8f8c8c'});
+        //RouteSL4Polyline.setStyle({color: '#8f8c8c'});
+        //Route1Polyline.setStyle({color:route1color});
+        Route43Polyline.setStyle({opacity: 0.3});
+        RouteSL5Polyline.setStyle({opacity: 0.3});
+        RouteSL4Polyline.setStyle({opacity: 0.3});
+        Route1Polyline.setStyle({opacity: 1});
 
         d3.select("#route_43").style("opacity", "1");
         d3.select("#route_SL4").style("opacity", "1");
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
-        d3.selectAll("#bar_route-1").style("fill", "#66C2A5");
-        d3.selectAll("#bar_route-43").style("fill", "#fc8d62");
-        d3.selectAll("#bar_route-751").style("fill", "#8da0cb");
-        d3.selectAll("#bar_route-749").style("fill", "#e78ac3");
+        d3.selectAll("#bar_route-1").style("fill", route1color);
+        d3.selectAll("#bar_route-43").style("fill", route43color);
+        d3.selectAll("#bar_route-751").style("fill", routeSL5color);
+        d3.selectAll("#bar_route-749").style("fill", routeSL4color);
 
 
         d3.select("#route_43").style("opacity", "0.2");
@@ -236,7 +288,7 @@ function onClick(e) {
 
 
     }
-    else if (marker_text.search("43") != -1) {
+    else if ((marker_text !== "" && marker_text.search("43") !== -1 )|| (polyline_color !== "" && polyline_color===route43color)) {
         routeNum = "43";
         markerListToUse = allStopMarkers43;
         mymap.removeLayer(markerLayerGroup43);
@@ -244,20 +296,24 @@ function onClick(e) {
         mymap.removeLayer(markerLayerGroupSL4);
         mymap.removeLayer(markerLayerGroupSL5);
         markerLayerGroup43.addTo(mymap);
-        Route1Polyline.setStyle({color: '#8f8c8c'});
+        /*Route1Polyline.setStyle({color: '#8f8c8c'});
         RouteSL5Polyline.setStyle({color: '#8f8c8c'});
         RouteSL4Polyline.setStyle({color: '#8f8c8c'});
-        Route43Polyline.setStyle({color:"#fc8d62"});
+        Route43Polyline.setStyle({color:route43color});*/
+        Route1Polyline.setStyle({opacity: 0.3});
+        RouteSL5Polyline.setStyle({opacity: 0.3});
+        RouteSL4Polyline.setStyle({opacity: 0.3});
+        Route43Polyline.setStyle({opacity: 1});
 
         d3.select("#route_43").style("opacity", "1");
         d3.select("#route_SL4").style("opacity", "1");
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
-        d3.selectAll("#bar_route-1").style("fill", "#66C2A5");
-        d3.selectAll("#bar_route-43").style("fill", "#fc8d62");
-        d3.selectAll("#bar_route-751").style("fill", "#8da0cb");
-        d3.selectAll("#bar_route-749").style("fill", "#e78ac3");
+        d3.selectAll("#bar_route-1").style("fill", route1color);
+        d3.selectAll("#bar_route-43").style("fill", route43color);
+        d3.selectAll("#bar_route-751").style("fill", routeSL5color);
+        d3.selectAll("#bar_route-749").style("fill", routeSL4color);
 
         d3.select("#route_1").style("opacity", "0.2");
         d3.select("#route_SL4").style("opacity", "0.2");
@@ -268,7 +324,7 @@ function onClick(e) {
         d3.selectAll("#bar_route-751").style("fill", "#828583");
 
     }
-    else if (marker_text.search("SL4") != -1) {
+    else if ((marker_text !== "" && marker_text.search("SL4") !== -1) || (polyline_color !== "" && polyline_color === routeSL4color)) {
         routeNum = "SL4";
         markerListToUse = allStopMarkersSL4;
         mymap.removeLayer(markerLayerGroup1);
@@ -276,20 +332,24 @@ function onClick(e) {
         mymap.removeLayer(markerLayerGroupSL4);
         mymap.removeLayer(markerLayerGroupSL5);
         markerLayerGroupSL4.addTo(mymap);
-        Route43Polyline.setStyle({color: '#8f8c8c'});
+        /*Route43Polyline.setStyle({color: '#8f8c8c'});
         Route1Polyline.setStyle({color: '#8f8c8c'});
         RouteSL5Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL4Polyline.setStyle({color:"#e78ac3"});
+        RouteSL4Polyline.setStyle({color:routeSL4color});*/
+        Route43Polyline.setStyle({opacity: 0.3});
+        Route1Polyline.setStyle({opacity: 0.3});
+        RouteSL5Polyline.setStyle({opacity: 0.3});
+        RouteSL4Polyline.setStyle({opacity: 1});
 
         d3.select("#route_43").style("opacity", "1");
         d3.select("#route_SL4").style("opacity", "1");
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
-        d3.selectAll("#bar_route-1").style("fill", "#66C2A5");
-        d3.selectAll("#bar_route-43").style("fill", "#fc8d62");
-        d3.selectAll("#bar_route-751").style("fill", "#8da0cb");
-        d3.selectAll("#bar_route-749").style("fill", "#e78ac3");
+        d3.selectAll("#bar_route-1").style("fill", route1color);
+        d3.selectAll("#bar_route-43").style("fill", route43color);
+        d3.selectAll("#bar_route-751").style("fill", routeSL5color);
+        d3.selectAll("#bar_route-749").style("fill", routeSL4color);
 
         d3.select("#route_43").style("opacity", "0.2");
         d3.select("#route_1").style("opacity", "0.2");
@@ -300,7 +360,7 @@ function onClick(e) {
         d3.selectAll("#bar_route-751").style("fill", "#828583");
 
     }
-    else if (marker_text.search("SL5") != -1) {
+    else if ((marker_text !== "" && marker_text.search("SL5") !== -1)|| (polyline_color !== "" && polyline_color === routeSL5color)) {
         routeNum = "SL5";
         markerListToUse = allStopMarkersSL5;
         mymap.removeLayer(markerLayerGroup1);
@@ -308,20 +368,24 @@ function onClick(e) {
         mymap.removeLayer(markerLayerGroup43);
         mymap.removeLayer(markerLayerGroupSL5);
         markerLayerGroupSL5.addTo(mymap);
-        Route43Polyline.setStyle({color: '#8f8c8c'});
+        /*Route43Polyline.setStyle({color: '#8f8c8c'});
         RouteSL4Polyline.setStyle({color: '#8f8c8c'});
         Route1Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL5Polyline.setStyle({color:"#8da0cb"});
+        RouteSL5Polyline.setStyle({color:routeSL5color});*/
+        Route43Polyline.setStyle({opacity: 0.3});
+        RouteSL4Polyline.setStyle({opacity: 0.3});
+        Route1Polyline.setStyle({opacity: 0.3});
+        RouteSL5Polyline.setStyle({opacity: 1});
 
         d3.select("#route_43").style("opacity", "1");
         d3.select("#route_SL4").style("opacity", "1");
         d3.select("#route_1").style("opacity", "1");
         d3.select("#route_SL5").style("opacity", "1");
 
-        d3.selectAll("#bar_route-1").style("fill", "#66C2A5");
-        d3.selectAll("#bar_route-43").style("fill", "#fc8d62");
-        d3.selectAll("#bar_route-751").style("fill", "#8da0cb");
-        d3.selectAll("#bar_route-749").style("fill", "#e78ac3");
+        d3.selectAll("#bar_route-1").style("fill", route1color);
+        d3.selectAll("#bar_route-43").style("fill", route43color);
+        d3.selectAll("#bar_route-751").style("fill", routeSL5color);
+        d3.selectAll("#bar_route-749").style("fill", routeSL4color);
 
         d3.select("#route_43").style("opacity", "0.2");
         d3.select("#route_SL4").style("opacity", "0.2");
@@ -332,36 +396,7 @@ function onClick(e) {
         d3.selectAll("#bar_route-43").style("fill", "#828583");
 
     }
-
-    var updatedStopMarkers = new Array();
-
-/*    for (i=0; i<markerListToUse.length; i++) {
-        var currentMarker = markerListToUse[i];
-        var markerRoute = currentMarker.options.title;
-        if (!(markerRoute === routeNum)) {
-            currentMarker.options.__proto__.__proto__.opacity = 0.5;
-            currentMarker.on('click',function (e){ // do nothing
-                 });
-        }
-        else {
-            currentMarker.options.__proto__.__proto__.opacity = 1;
-        }
-        updatedStopMarkers.push(currentMarker);
-    }*/
-
-
-
-/*    markerLayerGroup = L.layerGroup(updatedStopMarkers);
-
-    markerLayerGroup.addTo(mymap);*/
-
-
-/*    mymap.eachLayer(function(layer) {
-        if(layer.options && layer.options.pane === "markerPane") {
-            alert("Marker [" + layer.options.title + "]");
-        }
-    });*/
-
+        
 }
 
 function offClick(e) {
@@ -373,15 +408,18 @@ function offClick(e) {
     markerLayerGroup43.addTo(mymap);
     markerLayerGroupSL4.addTo(mymap);
     markerLayerGroupSL5.addTo(mymap);
-    Route1Polyline.setStyle({color:"#66c2a5"});
-    Route43Polyline.setStyle({color:"#fc8d62"});
-    RouteSL4Polyline.setStyle({color:"#e78ac3"});
-    RouteSL5Polyline.setStyle({color:"#8da0cb"});
+    Route1Polyline.setStyle({opacity:1});
+    Route43Polyline.setStyle({opacity:1});
+    RouteSL4Polyline.setStyle({opacity:1});
+    RouteSL5Polyline.setStyle({opacity:1});
     d3.select("#route_43").style("opacity", "1");
     d3.select("#route_SL4").style("opacity", "1");
     d3.select("#route_1").style("opacity", "1");
     d3.select("#route_SL5").style("opacity", "1");
-
+    d3.selectAll("#bar_route-1").style("fill", route1color);
+    d3.selectAll("#bar_route-43").style("fill", route43color);
+    d3.selectAll("#bar_route-751").style("fill", routeSL5color);
+    d3.selectAll("#bar_route-749").style("fill", routeSL4color);
 }
 
 d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
@@ -430,7 +468,21 @@ d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
         accessToken: 'your.mapbox.access.token'})
         .addTo(mymap2);
 
-//linechart code
+var bar1 = d3.selectAll("#bar_route-1");
+d3.selectAll("#bar_route-1").on("click",onClick);
+//d3.selectAll("#bar_route-1").off("click",offClick);
+
+d3.selectAll("#bar_route-43").on("click",onClick);
+d3.selectAll("#bar_route-751").on("click",onClick);
+d3.selectAll("#bar_route-749").on("click",onClick);
+//d3.selectAll("#bar_route-1").off("click",offClick);
+//d3.selectAll("#bar_route-43").off("click",offClick);
+//d3.selectAll("#bar_route-751").off("click",offClick);
+//d3.selectAll("#bar_route-749").off("click",offClick);
+
+
+//onClick for the RouteMap
+
 
 
 

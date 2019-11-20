@@ -95,6 +95,8 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv", function(error, data) {
         .attr("id","bar_route-751")
         .style("fill","#8da0cb");
 
+
+
     /*//Function for pulling out the data for route 1
     function routeOne(all_route_data) {
         var routeOneData = all_route_data.filter(function (d) {
