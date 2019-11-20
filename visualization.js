@@ -421,6 +421,7 @@ d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
     mymap2.boxZoom.disable();
     mymap2.keyboard.disable();
     mymap2.dragging.disable();
+    
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.' +
         'png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
@@ -430,5 +431,6 @@ d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
         .addTo(mymap2);
 
 //linechart code
+
 
 
