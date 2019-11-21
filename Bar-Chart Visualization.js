@@ -66,7 +66,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv", function(error, data) {
         .attr("text-anchor", "middle")
         .style("font-size", "16px")
         .style("text-decoration", "underline")
-        .text("Total Average Headway Score");
+        .text("Total Average Headway Score for 2018");
 
     svg.selectAll(".bar")
         .data(data)
