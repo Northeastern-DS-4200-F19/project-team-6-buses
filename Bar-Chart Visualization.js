@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var margin = {top: 40, right: 20, bottom: 30, left: 50},
+var margin = {top: 40, right: 20, bottom: 60, left: 50},
     width = 560 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -54,8 +54,10 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv", function(error, data) {
     //X-Axis Label
     svg.append("text")
         .attr("transform",
-            "translate(" + (width/2) + "," + (height + margin.top + 20) + ")")
-        .text("Route");
+            "translate(" + (width/2) + " ," +
+            (height + margin.top) + ")")
+        .style("text-anchor", "middle")
+        .text("Route");;
 
     //Title of Graph
     svg.append("text")
