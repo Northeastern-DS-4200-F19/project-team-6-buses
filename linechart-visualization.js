@@ -51,6 +51,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
 
         svg.append("g")
             .attr("class","axis")
+            .style("font", "14px times")
                 .attr("transform"
                 , "translate(0," + height + ")")
             .call(x_axis)
