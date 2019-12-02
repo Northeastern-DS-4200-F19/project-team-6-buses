@@ -26,26 +26,18 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
     // Now I can use this dataset:
     function(data) {
 
-        var x_min = d3.min(data, function (d) {
-            return +d.month
-        });
-        var x_max = d3.max(data, function (d) {
-            return +d.month
-        });
 
-        var formatter = d3.timeFormat("%B");
-        var jan = 1;
-        var name = formatter(1);
+        let formatter = d3.timeFormat("%B");
 
         // Add X axis --> it is a date format
-        var x = d3.scaleTime()
+        let x = d3.scaleTime()
             .domain([new Date(2018, 0, 1), new Date(2018, 11, 1)])
             //d3.extent(data, function(d) { return d.date }))
             .range([0, width]);
 
         //defining the x-axis and appending it to the bottom of the svg, as well as formatting the ticks for the
         // axis. Appending the created 'x' variable information to this newly created variable
-        var x_axis = d3.axisBottom().scale(x)
+        let x_axis = d3.axisBottom().scale(x)
             .tickFormat(d3.timeFormat("%B"));
 
 
@@ -72,7 +64,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
             .text("Month");
 
         // Add Y axis
-        var y = d3.scaleLinear()
+        let y = d3.scaleLinear()
             .domain([d3.min(data, function (d) {
                 return +d.headway_score
             }) - .1, d3.max(data, function (d) {
@@ -81,7 +73,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
             .range([height, 0]);
 
         //identifying a y-axis variable, and appending the created 'y' variable information to the axis
-        var y_axis = d3.axisLeft().scale(y);
+        let y_axis = d3.axisLeft().scale(y);
 
         //passing in the y-axis variable to the svg
         svg.append("g")
@@ -111,7 +103,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
         // specific route ID's we were able to pull out the associated information and then pass it in as a
         // separate path onto the SVG
         function routeOne(all_route_data) {
-            var routeOneData = all_route_data.filter(function (d) {
+            let routeOneData = all_route_data.filter(function (d) {
                 if (d["gtfs_route_id"] === "1") {
                     return d;
                 }
@@ -137,7 +129,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
         // specific route ID's we were able to pull out the associated information and then pass it in as a
         // separate path onto the SVG
         function route43(all_route_data) {
-            var route43Data = all_route_data.filter(function (d) {
+            let route43Data = all_route_data.filter(function (d) {
                 if (d["gtfs_route_id"] === "43") {
                     return d;
                 }
@@ -163,7 +155,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
         // specific route ID's we were able to pull out the associated information and then pass it in as a
         // separate path onto the SVG
         function route749(all_route_data) {
-            var route749Data = all_route_data.filter(function (d) {
+            let route749Data = all_route_data.filter(function (d) {
                 if (d["gtfs_route_id"] === "749") {
                     return d;
                 }
@@ -190,7 +182,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
         // separate path onto the SVG
 
         function route751(all_route_data) {
-            var route751Data = all_route_data.filter(function (d) {
+            let route751Data = all_route_data.filter(function (d) {
                 if (d["gtfs_route_id"] === "751") {
                     return d;
                 }

@@ -36,9 +36,9 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     shapeData = data;
 
 }).then(function() {
-    var i;
+    let i;
     for (i = 0; i < shapeData.length; i++) {
-        var point = shapeData[i];
+        let point = shapeData[i];
         if (point["shape_id"] === "010058") {
             lat = point["shape_pt_lat"];
             long = point["shape_pt_lon"];
@@ -148,17 +148,17 @@ var allStopMarkersSL5 = new Array();
 d3.csv("data/Misc csv's/relevant_stops.csv").then(function (data) {
     routestops = data;
 }).then(function() {
-    var routestop;
+    let routestop;
 
     for (routestop = 0; routestop < routestops.length; routestop++){
 
-        var stop = routestops[routestop];
+        let stop = routestops[routestop];
         lat = stop["lat"];
         long = stop["long"];
         stopname = stop["Stop Name"];
         stopID = stop["Route"];
 
-        var marker = L.circleMarker([lat,long], {title: stopID}).setRadius(3);
+        let marker = L.circleMarker([lat,long], {title: stopID}).setRadius(3);
 
         if (stopID === "1") {
             allStopMarkers1.push(marker)
@@ -212,13 +212,13 @@ var routeSL5color = "#8da0cb";
 
 // highlights route-specific parts of visualization
 function onClick(e) {
-    var marker_text = "";
+    let marker_text = "";
     try {
         marker_text = e.target._popup._content;
     } catch (Error) {
         // do nothing
     }
-    var polyline_color = "";
+    let polyline_color = "";
     try {
         polyline_color = e.target.options.color;
     } catch (Error) {
@@ -379,17 +379,17 @@ d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
         ChesterStops = data2;
     }).then(function(){
 
-        var b;
+        let b;
 
         for(b =0; b < ChesterStops.length; b++){
 
-            var stops = ChesterStops[b];
+            let stops = ChesterStops[b];
             lat = stops["lat"];
             long = stops["long"];
             stopname = stops["StopName"];
             stopID = stops["Shape_id"];
 
-            var marker = L.marker([lat,long]);
+            let marker = L.marker([lat,long]);
 
 
             marker.addTo(mymap2);
