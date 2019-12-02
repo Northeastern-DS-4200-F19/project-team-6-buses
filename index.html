@@ -52,11 +52,15 @@
       
       <h1>Motivation</h1>
 
-      <p>In our design, we focused on assessing the delay and unreliability of the buses. We focused on the routes that pass through Chester Square.
-        The problem that we wanted to solve is highlighting the areas where the buses are most delayed/unreliable, so that people in a position to improve the buses would have
-        this information. On our survey, a lot of people responded saying that the buses were unreliable and sometimes delayed, so we wanted to do something to highlight this
-        problem. Therefore, our visualization will show users the reliability of each bus stop in Chester Square, and will also show users the reliability of the other
-        stops on those bus routes which pass through Chester Square. </p>
+      <p>After our discussion with Carol Blair from the Chester Square Neighborhood Association, we learned that the primary concern with
+        the current MBTA bus system is its unreliability. Residents are dissatisfied with the current frequency and traffic delays of the buses.
+        As a result of this meeting, in our design, we focused on assessing the delay and unreliability of the buses. We focused on the routes that pass
+        through Chester Square. The problem that we wanted to solve is highlighting the areas where the buses are most delayed/unreliable, so that
+        people in a position to improve the buses would have this information. From the results of our online survey emailed to residents of the
+        neighborhood, it was clear that a majority felt that the buses were unreliable and sometimes delayed, so our goal was to create
+        a visual that would highlight this problem. Therefore, our visualization will show users the reliability of each bus stop in Chester Square,
+        and will also show users the reliability of the other stops on those bus routes which pass through Chester Square. We hope that the Chester Square
+        Neighborhood Association can use this interactive visual as leverage in discussions with the MBTA administration in efforts to  facilitate change.  </p>
       
       <h1>Visualization</h1>
 
@@ -108,22 +112,35 @@
       
       <h1>Data Analysis</h1>
 
-      <p>Our data was mostly text files that we got from the MBTA GTFS data. We also manually created one csv file we needed.
-        We used python to convert the text files we needed into CSV files, and then read those files using the d3.csv method.
-        Most of our analysis came from mining the data through filtering techniques, where we got a better understanding of
-        the particular use, and capabilities, of the packaged GTFS data.
+      <p>
+        The data we needed to accomplish our goals was mostly comprised in text files that we retrieved from the MBTA GTFS data.
+        Through the use of python scripts, we converted the text files into CSV files and read those files using the d3.csv method.
+        Most of our analysis came from mining the data using filtering techniques, allowing us to get a better understanding of the
+        particular use, and capabilities of the packaged GTFS data.
       </p>
       <p>
-        What we initially discovered was how vast and well organized the GTFS data was, however we did realize that much of it was
-        compartmentalized and we had to preform a number of joins in order to extract the exact data that we cared about. Namely, the
-        stops around the chester square neighborhood and the bus routes which they were apart of. After extracting this data, and
-        pulling their associated geographical coordinates, we were able to build out some helpful visualizations.
+        The majority of our data planning and analysis was done is Tableau to give us a better understanding of the vast amounts of data.
+        We were then able to create informative visuals in the software and then recreate them using Javascript. This way, we fully understood the message and story we hoped to convey with the data.
+      </p>
+      <p>
+        What we initially discovered was how vast and well organized the GTFS data was, however we did realize that much of it was compartmentalized
+        and we had to perform a number of joins in order to extract the exact data that we cared about. Namely, the stops around the Chester Square Neighborhood
+        and the bus routes which they were apart of. After extracting this data, and pulling their associated geographical coordinates, we were able to build out some helpful visualizations.
       </p>
 
       <h1>Task Analysis</h1>
 
     
-      <p>The main objective of our visualization is to explain the unreliability of the MBTA bus system in an effective manner. We first gathered and parsed through data on the expected versus actual arrival times of the bus and discovered the percent of reliability of each bus line that travels through the Chester Square Neighborhood. This analysis shows the where the MBTA should work to improve the reliability and usage of the buses. 
+      <p>
+        The main objective of our visualization is to explain the unreliability of the MBTA bus system in an effective manner.
+        We first gathered and parsed through data on the expected versus actual arrival times of the bus and discovered the percent of reliability
+        of each bus line that travels through the Chester Square Neighborhood. This analysis shows the where the MBTA should work to improve the
+        reliability and usage of the buses. We are able to show the reliability of the bus at different times of the year that could potentially
+        allow for a further analysis of why buses are more unreliable at certain times of the year. Upon further exploration, changed in the bus system
+        could be made at specific time of the year. Another goal of ours was to asses the traffic delays in the neighborhood for optimal bus allocation
+        during rush hour and off-peak hours. In a future build, we would focus on explaining the reliability of the buses at different times of the day instead
+        of for the overall day. Eventually, we would be able to come up with solutions to solving the issue of unreliable buses not only in Chester Square but in the city of Boston.
+
       </p>
 
       <h1>Design Process</h1>
