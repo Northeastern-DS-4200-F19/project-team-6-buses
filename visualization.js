@@ -261,9 +261,9 @@ function onClick(e) {
         //RouteSL5Polyline.setStyle({color: '#8f8c8c'});
         //RouteSL4Polyline.setStyle({color: '#8f8c8c'});
         //Route1Polyline.setStyle({color:route1color});
-        Route43Polyline.setStyle({opacity: 0.3});
-        RouteSL5Polyline.setStyle({opacity: 0.3});
-        RouteSL4Polyline.setStyle({opacity: 0.3});
+        Route43Polyline.setStyle({opacity: 0.5});
+        RouteSL5Polyline.setStyle({opacity: 0.5});
+        RouteSL4Polyline.setStyle({opacity: 0.5});
         Route1Polyline.setStyle({opacity: 1});
 
         d3.select("#route_43").style("opacity", "1");
@@ -277,9 +277,9 @@ function onClick(e) {
         d3.selectAll("#bar_route-749").style("fill", routeSL4color);
 
 
-        d3.select("#route_43").style("opacity", "0.2");
-        d3.select("#route_SL4").style("opacity", "0.2");
-        d3.select("#route_SL5").style("opacity", "0.2");
+        d3.select("#route_43").style("opacity", "0.3");
+        d3.select("#route_SL4").style("opacity", "0.3");
+        d3.select("#route_SL5").style("opacity", "0.3");
 
         d3.selectAll("#bar_route-43").style("fill", "#828583");
         d3.selectAll("#bar_route-749").style("fill", "#828583");
@@ -300,9 +300,9 @@ function onClick(e) {
         RouteSL5Polyline.setStyle({color: '#8f8c8c'});
         RouteSL4Polyline.setStyle({color: '#8f8c8c'});
         Route43Polyline.setStyle({color:route43color});*/
-        Route1Polyline.setStyle({opacity: 0.3});
-        RouteSL5Polyline.setStyle({opacity: 0.3});
-        RouteSL4Polyline.setStyle({opacity: 0.3});
+        Route1Polyline.setStyle({opacity: 0.5});
+        RouteSL5Polyline.setStyle({opacity: 0.5});
+        RouteSL4Polyline.setStyle({opacity: 0.5});
         Route43Polyline.setStyle({opacity: 1});
 
         d3.select("#route_43").style("opacity", "1");
@@ -315,9 +315,9 @@ function onClick(e) {
         d3.selectAll("#bar_route-751").style("fill", routeSL5color);
         d3.selectAll("#bar_route-749").style("fill", routeSL4color);
 
-        d3.select("#route_1").style("opacity", "0.2");
-        d3.select("#route_SL4").style("opacity", "0.2");
-        d3.select("#route_SL5").style("opacity", "0.2");
+        d3.select("#route_1").style("opacity", "0.3");
+        d3.select("#route_SL4").style("opacity", "0.3");
+        d3.select("#route_SL5").style("opacity", "0.3");
 
         d3.selectAll("#bar_route-1").style("fill", "#828583");
         d3.selectAll("#bar_route-749").style("fill", "#828583");
@@ -336,9 +336,9 @@ function onClick(e) {
         Route1Polyline.setStyle({color: '#8f8c8c'});
         RouteSL5Polyline.setStyle({color: '#8f8c8c'});
         RouteSL4Polyline.setStyle({color:routeSL4color});*/
-        Route43Polyline.setStyle({opacity: 0.3});
-        Route1Polyline.setStyle({opacity: 0.3});
-        RouteSL5Polyline.setStyle({opacity: 0.3});
+        Route43Polyline.setStyle({opacity: 0.5});
+        Route1Polyline.setStyle({opacity: 0.5});
+        RouteSL5Polyline.setStyle({opacity: 0.5});
         RouteSL4Polyline.setStyle({opacity: 1});
 
         d3.select("#route_43").style("opacity", "1");
@@ -351,9 +351,9 @@ function onClick(e) {
         d3.selectAll("#bar_route-751").style("fill", routeSL5color);
         d3.selectAll("#bar_route-749").style("fill", routeSL4color);
 
-        d3.select("#route_43").style("opacity", "0.2");
-        d3.select("#route_1").style("opacity", "0.2");
-        d3.select("#route_SL5").style("opacity", "0.2");
+        d3.select("#route_43").style("opacity", "0.3");
+        d3.select("#route_1").style("opacity", "0.3");
+        d3.select("#route_SL5").style("opacity", "0.3");
 
         d3.selectAll("#bar_route-1").style("fill", "#828583");
         d3.selectAll("#bar_route-43").style("fill", "#828583");
@@ -372,9 +372,9 @@ function onClick(e) {
         RouteSL4Polyline.setStyle({color: '#8f8c8c'});
         Route1Polyline.setStyle({color: '#8f8c8c'});
         RouteSL5Polyline.setStyle({color:routeSL5color});*/
-        Route43Polyline.setStyle({opacity: 0.3});
-        RouteSL4Polyline.setStyle({opacity: 0.3});
-        Route1Polyline.setStyle({opacity: 0.3});
+        Route43Polyline.setStyle({opacity: 0.5});
+        RouteSL4Polyline.setStyle({opacity: 0.5});
+        Route1Polyline.setStyle({opacity: 0.5});
         RouteSL5Polyline.setStyle({opacity: 1});
 
         d3.select("#route_43").style("opacity", "1");
@@ -387,9 +387,9 @@ function onClick(e) {
         d3.selectAll("#bar_route-751").style("fill", routeSL5color);
         d3.selectAll("#bar_route-749").style("fill", routeSL4color);
 
-        d3.select("#route_43").style("opacity", "0.2");
-        d3.select("#route_SL4").style("opacity", "0.2");
-        d3.select("#route_1").style("opacity", "0.2");
+        d3.select("#route_43").style("opacity", "0.3");
+        d3.select("#route_SL4").style("opacity", "0.3");
+        d3.select("#route_1").style("opacity", "0.3");
 
         d3.selectAll("#bar_route-1").style("fill", "#828583");
         d3.selectAll("#bar_route-749").style("fill", "#828583");
