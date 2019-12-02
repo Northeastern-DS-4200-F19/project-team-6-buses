@@ -1,5 +1,6 @@
 var shapeData;
 
+// coordinates for each of four bus lines (separated by inbound and outbound)
 var coords1 = [];
 var coords2 =[];
 var coords3 = [];
@@ -9,34 +10,29 @@ var coords6 = [];
 var coords7 = [];
 var coords8 = [];
 
+// coordinates for each bus line
 var Route1coords = [];
 var Route43coords =[];
 var RouteSL4coords =[];
 var RouteSL5coords = [];
 
-var allcoords =[];
-
-/*
-var r = Math.floor(Math.random() * 255);
-var g = Math.floor(Math.random() * 255);
-var b = Math.floor(Math.random() * 255);
-*/
-
+// Right map on our visualization
 var mymap;
 
-var markerLayerGroup;
+// One layer group of markers for each route
 var markerLayerGroup1;
 var markerLayerGroup43;
 var markerLayerGroupSL4;
 var markerLayerGroupSL5;
 
+// One polyline for each route
 var Route1Polyline;
 var Route43Polyline;
 var RouteSL4Polyline;
 var RouteSL5Polyline;
 
+// Load polylines onto mymap
 d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
-    //console.log(data[4]);
     shapeData = data;
 
 }).then(function() {
@@ -94,8 +90,6 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     RouteSL4coords.push(coords4,coords8);
     RouteSL5coords.push(coords3,coords7);
 
-    //allcoords.push(coords1,coords2, coords3, coords4, coords5, coords6, coords7, coords8);
-
     mymap = L.map('mapid').setView([42.3530, -71.09], 13);
 
     mymap.scrollWheelZoom.disable();
@@ -106,7 +100,6 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     Route1Polyline.setStyle({
         weight: 5
     });
-    //Route1Polyline.off('click',offClick);
     Route1Polyline.addTo(mymap);
 
     Route43Polyline = L.polyline(Route43coords,{color:route43color});
@@ -114,7 +107,6 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     Route43Polyline.setStyle({
         weight: 5
     });
-    //Route43Polyline.off('click',offClick);
     Route43Polyline.addTo(mymap);
 
     RouteSL4Polyline = L.polyline(RouteSL4coords,{color:routeSL4color});
@@ -122,7 +114,6 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     RouteSL4Polyline.setStyle({
         weight: 5
     });
-    //RouteSL4Polyline.off('click',offClick);
     RouteSL4Polyline.addTo(mymap);
 
     RouteSL5Polyline = L.polyline(RouteSL5coords,{color:routeSL5color});
@@ -130,7 +121,6 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
     RouteSL5Polyline.setStyle({
         weight: 5
     });
-    //RouteSL5Polyline.off('click',offClick);
     RouteSL5Polyline.addTo(mymap);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.' +
@@ -145,16 +135,16 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
 
 });
 
+// stores route stop data
 var routestops;
 
-var allStopMarkers = new Array();
+// store all stop markers that will be created for each route
 var allStopMarkers1 = new Array();
 var allStopMarkers43 = new Array();
 var allStopMarkersSL4 = new Array();
 var allStopMarkersSL5 = new Array();
 
-
-
+// load stop markers onto mymap
 d3.csv("data/relevant_stops.csv").then(function (data) {
     routestops = data;
 }).then(function() {
@@ -183,11 +173,6 @@ d3.csv("data/relevant_stops.csv").then(function (data) {
             allStopMarkersSL5.push(marker)
         }
 
-        //marker.addTo(mymap);
-
-        //click and binding pop-up function
-        //marker.bindPopup(stopname).openPopup();
-
 
         //Hovering pop-up function
         marker.bindPopup(stopname);
@@ -214,26 +199,19 @@ d3.csv("data/relevant_stops.csv").then(function (data) {
 });
 
 
+// Chester Square Visualization (on left)
 
+// stores chester square stop data
+var ChesterStops;
 
-/////Chester Square Visualization
+// colors of each route on visualization
+var route1color = "#66c2a5";
+var route43color = "#fc8d62";
+var routeSL4color = "#e78ac3";
+var routeSL5color = "#8da0cb";
 
-    var ChesterStops;
-
-    var ChesterCoords =[];
-    
-    var route1color;
-    var route43color;
-    var routeSL4color;
-    var routeSL5color;
-    
-    route1color = "#66c2a5";
-    route43color = "#fc8d62";
-    routeSL4color = "#e78ac3";
-    routeSL5color = "#8da0cb";
-
+// highlights route-specific parts of visualization
 function onClick(e) {
-    //console.log(marker._popup._content);
     var marker_text = "";
     try {
         marker_text = e.target._popup._content;
@@ -246,21 +224,12 @@ function onClick(e) {
     } catch (Error) {
         // do nothing
     }
-    var routeNum = "-1";
-    var routeLayerToUse;
-    var markerListToUse;
     if ((marker_text !== "" && marker_text.search("1") !== -1) || (polyline_color !== "" && polyline_color===route1color)) {
-        routeNum = "1";
-        markerListToUse = allStopMarkers1;
         mymap.removeLayer(markerLayerGroup43);
         mymap.removeLayer(markerLayerGroupSL4);
         mymap.removeLayer(markerLayerGroupSL5);
         mymap.removeLayer(markerLayerGroup1);
         markerLayerGroup1.addTo(mymap);
-        //Route43Polyline.setStyle({color: '#8f8c8c'});
-        //RouteSL5Polyline.setStyle({color: '#8f8c8c'});
-        //RouteSL4Polyline.setStyle({color: '#8f8c8c'});
-        //Route1Polyline.setStyle({color:route1color});
         Route43Polyline.setStyle({opacity: 0.5});
         RouteSL5Polyline.setStyle({opacity: 0.5});
         RouteSL4Polyline.setStyle({opacity: 0.5});
@@ -289,17 +258,11 @@ function onClick(e) {
 
     }
     else if ((marker_text !== "" && marker_text.search("43") !== -1 )|| (polyline_color !== "" && polyline_color===route43color)) {
-        routeNum = "43";
-        markerListToUse = allStopMarkers43;
         mymap.removeLayer(markerLayerGroup43);
         mymap.removeLayer(markerLayerGroup1);
         mymap.removeLayer(markerLayerGroupSL4);
         mymap.removeLayer(markerLayerGroupSL5);
         markerLayerGroup43.addTo(mymap);
-        /*Route1Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL5Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL4Polyline.setStyle({color: '#8f8c8c'});
-        Route43Polyline.setStyle({color:route43color});*/
         Route1Polyline.setStyle({opacity: 0.5});
         RouteSL5Polyline.setStyle({opacity: 0.5});
         RouteSL4Polyline.setStyle({opacity: 0.5});
@@ -325,17 +288,11 @@ function onClick(e) {
 
     }
     else if ((marker_text !== "" && marker_text.search("SL4") !== -1) || (polyline_color !== "" && polyline_color === routeSL4color)) {
-        routeNum = "SL4";
-        markerListToUse = allStopMarkersSL4;
         mymap.removeLayer(markerLayerGroup1);
         mymap.removeLayer(markerLayerGroup43);
         mymap.removeLayer(markerLayerGroupSL4);
         mymap.removeLayer(markerLayerGroupSL5);
         markerLayerGroupSL4.addTo(mymap);
-        /*Route43Polyline.setStyle({color: '#8f8c8c'});
-        Route1Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL5Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL4Polyline.setStyle({color:routeSL4color});*/
         Route43Polyline.setStyle({opacity: 0.5});
         Route1Polyline.setStyle({opacity: 0.5});
         RouteSL5Polyline.setStyle({opacity: 0.5});
@@ -361,17 +318,11 @@ function onClick(e) {
 
     }
     else if ((marker_text !== "" && marker_text.search("SL5") !== -1)|| (polyline_color !== "" && polyline_color === routeSL5color)) {
-        routeNum = "SL5";
-        markerListToUse = allStopMarkersSL5;
         mymap.removeLayer(markerLayerGroup1);
         mymap.removeLayer(markerLayerGroupSL4);
         mymap.removeLayer(markerLayerGroup43);
         mymap.removeLayer(markerLayerGroupSL5);
         markerLayerGroupSL5.addTo(mymap);
-        /*Route43Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL4Polyline.setStyle({color: '#8f8c8c'});
-        Route1Polyline.setStyle({color: '#8f8c8c'});
-        RouteSL5Polyline.setStyle({color:routeSL5color});*/
         Route43Polyline.setStyle({opacity: 0.5});
         RouteSL4Polyline.setStyle({opacity: 0.5});
         Route1Polyline.setStyle({opacity: 0.5});
@@ -399,6 +350,7 @@ function onClick(e) {
         
 }
 
+// resets highlights of route-specific parts of visualization
 function offClick(e) {
     mymap.removeLayer(markerLayerGroup43);
     mymap.removeLayer(markerLayerGroupSL4);
@@ -422,10 +374,9 @@ function offClick(e) {
     d3.selectAll("#bar_route-749").style("fill", routeSL4color);
 }
 
+// load Chester Square stop markers onto Chester Square map
 d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
-
         ChesterStops = data2;
-
     }).then(function(){
 
         var b;
@@ -468,21 +419,7 @@ d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
         accessToken: 'your.mapbox.access.token'})
         .addTo(mymap2);
 
-var bar1 = d3.selectAll("#bar_route-1");
 d3.selectAll("#bar_route-1").on("click",onClick);
-//d3.selectAll("#bar_route-1").off("click",offClick);
-
 d3.selectAll("#bar_route-43").on("click",onClick);
 d3.selectAll("#bar_route-751").on("click",onClick);
 d3.selectAll("#bar_route-749").on("click",onClick);
-//d3.selectAll("#bar_route-1").off("click",offClick);
-//d3.selectAll("#bar_route-43").off("click",offClick);
-//d3.selectAll("#bar_route-751").off("click",offClick);
-//d3.selectAll("#bar_route-749").off("click",offClick);
-
-
-//onClick for the RouteMap
-
-
-
-
