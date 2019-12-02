@@ -145,7 +145,7 @@ var allStopMarkersSL4 = new Array();
 var allStopMarkersSL5 = new Array();
 
 // load stop markers onto mymap
-d3.csv("data/relevant_stops.csv").then(function (data) {
+d3.csv("data/Misc csv's/relevant_stops.csv").then(function (data) {
     routestops = data;
 }).then(function() {
     var routestop;
