@@ -43,12 +43,14 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
             //d3.extent(data, function(d) { return d.date }))
             .range([0, width]);
 
+        //defining the x-axis and appending it to the bottom of the svg, as well as formatting the ticks for the
+        // axis. Appending the created 'x' variable information to this newly created variable
         var x_axis = d3.axisBottom().scale(x)
             .tickFormat(d3.timeFormat("%B"));
 
-        //svg.select(x_axis)
-            //.attr("transform", "rotate(-65)");
 
+        // appending a group of attributes to the svg, specifically for ticks, and transforming them to be more
+        // legible
         svg.append("g")
             .attr("class","axis")
             .style("font", "14px times")
@@ -61,6 +63,8 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                 .attr("dy",".15em")
                 .attr("transform", "rotate(-65)");
 
+
+        // giving the axis a label of  "Month"
         svg.append("text")
             .attr("transform",
                 "translate(" + (width/2) + "," + (height + margin.top + 20) + ")")
@@ -76,11 +80,15 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
             }) + .1])
             .range([height, 0]);
 
+        //identifying a y-axis variable, and appending the created 'y' variable information to the axis
         var y_axis = d3.axisLeft().scale(y);
 
+        //passing in the y-axis variable to the svg
         svg.append("g")
             .call(y_axis);
 
+
+        //giving the y-axis label an identifying label
         svg.append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", 0 - margin.left)
@@ -98,6 +106,10 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
             .style("text-decoration", "underline")
             .text("Schedule Adherence Over Time for 2018");
 
+
+        //function designed to pull out data specfically associated with each route. By filtering for
+        // specific route ID's we were able to pull out the associated information and then pass it in as a
+        // separate path onto the SVG
         function routeOne(all_route_data) {
             var routeOneData = all_route_data.filter(function (d) {
                 if (d["gtfs_route_id"] === "1") {
@@ -121,6 +133,9 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                 )
         }
 
+        //function designed to pull out data specfically associated with each route. By filtering for
+        // specific route ID's we were able to pull out the associated information and then pass it in as a
+        // separate path onto the SVG
         function route43(all_route_data) {
             var route43Data = all_route_data.filter(function (d) {
                 if (d["gtfs_route_id"] === "43") {
@@ -144,6 +159,9 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                 )
         }
 
+        //function designed to pull out data specfically associated with each route. By filtering for
+        // specific route ID's we were able to pull out the associated information and then pass it in as a
+        // separate path onto the SVG
         function route749(all_route_data) {
             var route749Data = all_route_data.filter(function (d) {
                 if (d["gtfs_route_id"] === "749") {
@@ -166,6 +184,10 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                     })
                 )
         }
+
+        //function designed to pull out data specfically associated with each route. By filtering for
+        // specific route ID's we were able to pull out the associated information and then pass it in as a
+        // separate path onto the SVG
 
         function route751(all_route_data) {
             var route751Data = all_route_data.filter(function (d) {
@@ -190,6 +212,9 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                 )
         }
 
+
+        //running the functions and having them pull their specific data from the defined "data" variable which
+        // is a d3 argument that reads in the data.
         routeOne(data);
         route43(data);
         route749(data);

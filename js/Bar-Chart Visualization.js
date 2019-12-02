@@ -69,6 +69,10 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv", function(error, data) {
         .style("text-decoration", "underline")
         .text("Total Average Headway Score for 2018");
 
+    //appends all the bars to the chart, feeds in the data and appends bars to the chart. Assigns the
+    // x variables to their associated attribute (the route ID), and assigns y variables to the calculated
+    // headway score. Width of the X variables are determined on chart bandwidth, while height of the Y variables
+    // are determined by the headway score
     svg.selectAll(".bar")
         .data(data)
         .enter().append("rect")
@@ -78,102 +82,28 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv", function(error, data) {
         .attr("y", function(d) { return y(d.headway_score); })
         .attr("height", function(d) { return height - y(d.headway_score); });
 
+    //identifying route 1 and assigning an identifying color
     svg.selectAll(".bar")
         .filter(function(d){return d.gtfs_route_id === "1";})
         .attr("id","bar_route-1")
         .style("fill","#66C2A5");
 
+    //identifying route 43 and assigning an identifying color
     svg.selectAll(".bar")
         .filter(function(d){return d.gtfs_route_id === "43";})
         .attr("id","bar_route-43")
         .style("fill","#fc8d62");
 
+    //identifying route SL4 and assigning an identifying color
     svg.selectAll(".bar")
         .filter(function(d){return d.gtfs_route_id === "749";})
         .attr("id","bar_route-749")
         .style("fill","#e78ac3");
 
+    //identifying route SL5 and assigning an identifying color
     svg.selectAll(".bar")
         .filter(function(d){return d.gtfs_route_id === "751";})
         .attr("id","bar_route-751")
         .style("fill","#8da0cb");
-
-
-
-    /*//Function for pulling out the data for route 1
-    function routeOne(all_route_data) {
-        var routeOneData = all_route_data.filter(function (d) {
-            if (d["gtfs_route_id"] === "1") {
-                return d;
-            }
-        });
-        svg.append("path")
-            .data(routeOneData)
-            .enter().append("rect")
-            .attr("class", "bar")
-            .attr("x", function(d) { return x(d.gtfs_route_id); })
-            .attr("width", x.bandwidth())
-            .attr("y", function(d) { return y(d.headway_score); })
-            .attr("height", function(d) { return height - y(d.headway_score); })
-            .style("fill", "#66C2A5");
-    }
-    function route43(all_route_data) {
-        var route43Data = all_route_data.filter(function (d) {
-            if (d["gtfs_route_id"] === "43") {
-                return d;
-            }
-        });
-
-        svg.append("path")
-            .data(route43Data)
-            .enter().append("rect")
-            .attr("class", "bar")
-            .attr("x", function(d) { return x(d.gtfs_route_id); })
-            .attr("width", x.bandwidth())
-            .attr("y", function(d) { return y(d.headway_score); })
-            .attr("height", function(d) { return height - y(d.headway_score); })
-            .style("fill", "#fc8d62");
-
-    }
-    function route749(all_route_data) {
-        var route749Data = all_route_data.filter(function (d) {
-            if (d["gtfs_route_id"] === "749") {
-                return d;
-            }
-        });
-
-        svg.append("path")
-            .datum(route749Data)
-            .enter().append("rect")
-            .attr("class", "bar")
-            .attr("x", function(d) { return x(d.gtfs_route_id); })
-            .attr("width", x.bandwidth())
-            .attr("y", function(d) { return y(d.headway_score); })
-            .attr("height", function(d) { return height - y(d.headway_score); })
-            .style("fill", "#e78ac3");
-
-    }
-        function route751(all_route_data) {
-            var route751Data = all_route_data.filter(function (d) {
-                if (d["gtfs_route_id"] === "751") {
-                    return d;
-                }
-            });
-            svg.append("path")
-                .datum(route751Data)
-                .enter().append("rect")
-                .attr("class", "bar")
-                .attr("x", function(d) { return x(d.gtfs_route_id); })
-                .attr("width", x.bandwidth())
-                .attr("y", function(d) { return y(d.headway_score); })
-                .attr("height", function(d) { return height - y(d.headway_score); })
-                .style("fill", "#8da0cb");
-    }
-
-    routeOne(data);
-    route43(data);
-    route749(data);
-    route751(data);*/
-
 
 });
