@@ -177,6 +177,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
         // legible
         svg.append("g")
             .attr("class","axis")
+            .attr("viewbox", "0 0 600 600")
             .style("font", "14px times")
                 .attr("transform"
                 , "translate(0," + height + ")")
