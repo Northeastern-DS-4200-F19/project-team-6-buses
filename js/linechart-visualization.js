@@ -14,6 +14,138 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
 
+// highlights route-specific parts of visualization
+function onClick(e) {
+    let gtfs_route_id = "";
+    try {
+        gtfs_route_id = e[0].gtfs_route_id
+    } catch (Error) {
+        // do nothing
+    }
+    if (gtfs_route_id !== "" && gtfs_route_id==="1") {
+        mymap.removeLayer(markerLayerGroup43);
+        mymap.removeLayer(markerLayerGroupSL4);
+        mymap.removeLayer(markerLayerGroupSL5);
+        mymap.removeLayer(markerLayerGroup1);
+        markerLayerGroup1.addTo(mymap);
+        Route43Polyline.setStyle({opacity: 0.5});
+        RouteSL5Polyline.setStyle({opacity: 0.5});
+        RouteSL4Polyline.setStyle({opacity: 0.5});
+        Route1Polyline.setStyle({opacity: 1});
+
+        d3.select("#route_43").style("opacity", "1");
+        d3.select("#route_SL4").style("opacity", "1");
+        d3.select("#route_1").style("opacity", "1");
+        d3.select("#route_SL5").style("opacity", "1");
+
+        d3.selectAll("#bar_route-1").style("fill", route1color);
+        d3.selectAll("#bar_route-43").style("fill", route43color);
+        d3.selectAll("#bar_route-751").style("fill", routeSL5color);
+        d3.selectAll("#bar_route-749").style("fill", routeSL4color);
+
+
+        d3.select("#route_43").style("opacity", "0.3");
+        d3.select("#route_SL4").style("opacity", "0.3");
+        d3.select("#route_SL5").style("opacity", "0.3");
+
+        d3.selectAll("#bar_route-43").style("fill", "#828583");
+        d3.selectAll("#bar_route-749").style("fill", "#828583");
+        d3.selectAll("#bar_route-751").style("fill", "#828583");
+
+
+
+    }
+    else if (gtfs_route_id !== "" && gtfs_route_id==="43") {
+        mymap.removeLayer(markerLayerGroup43);
+        mymap.removeLayer(markerLayerGroup1);
+        mymap.removeLayer(markerLayerGroupSL4);
+        mymap.removeLayer(markerLayerGroupSL5);
+        markerLayerGroup43.addTo(mymap);
+        Route1Polyline.setStyle({opacity: 0.5});
+        RouteSL5Polyline.setStyle({opacity: 0.5});
+        RouteSL4Polyline.setStyle({opacity: 0.5});
+        Route43Polyline.setStyle({opacity: 1});
+
+        d3.select("#route_43").style("opacity", "1");
+        d3.select("#route_SL4").style("opacity", "1");
+        d3.select("#route_1").style("opacity", "1");
+        d3.select("#route_SL5").style("opacity", "1");
+
+        d3.selectAll("#bar_route-1").style("fill", route1color);
+        d3.selectAll("#bar_route-43").style("fill", route43color);
+        d3.selectAll("#bar_route-751").style("fill", routeSL5color);
+        d3.selectAll("#bar_route-749").style("fill", routeSL4color);
+
+        d3.select("#route_1").style("opacity", "0.3");
+        d3.select("#route_SL4").style("opacity", "0.3");
+        d3.select("#route_SL5").style("opacity", "0.3");
+
+        d3.selectAll("#bar_route-1").style("fill", "#828583");
+        d3.selectAll("#bar_route-749").style("fill", "#828583");
+        d3.selectAll("#bar_route-751").style("fill", "#828583");
+
+    }
+    else if (gtfs_route_id !== "" && gtfs_route_id==="749") {
+        mymap.removeLayer(markerLayerGroup1);
+        mymap.removeLayer(markerLayerGroup43);
+        mymap.removeLayer(markerLayerGroupSL4);
+        mymap.removeLayer(markerLayerGroupSL5);
+        markerLayerGroupSL4.addTo(mymap);
+        Route43Polyline.setStyle({opacity: 0.5});
+        Route1Polyline.setStyle({opacity: 0.5});
+        RouteSL5Polyline.setStyle({opacity: 0.5});
+        RouteSL4Polyline.setStyle({opacity: 1});
+
+        d3.select("#route_43").style("opacity", "1");
+        d3.select("#route_SL4").style("opacity", "1");
+        d3.select("#route_1").style("opacity", "1");
+        d3.select("#route_SL5").style("opacity", "1");
+
+        d3.selectAll("#bar_route-1").style("fill", route1color);
+        d3.selectAll("#bar_route-43").style("fill", route43color);
+        d3.selectAll("#bar_route-751").style("fill", routeSL5color);
+        d3.selectAll("#bar_route-749").style("fill", routeSL4color);
+
+        d3.select("#route_43").style("opacity", "0.3");
+        d3.select("#route_1").style("opacity", "0.3");
+        d3.select("#route_SL5").style("opacity", "0.3");
+
+        d3.selectAll("#bar_route-1").style("fill", "#828583");
+        d3.selectAll("#bar_route-43").style("fill", "#828583");
+        d3.selectAll("#bar_route-751").style("fill", "#828583");
+
+    }
+    else if (gtfs_route_id !== "" && gtfs_route_id==="751") {
+        mymap.removeLayer(markerLayerGroup1);
+        mymap.removeLayer(markerLayerGroupSL4);
+        mymap.removeLayer(markerLayerGroup43);
+        mymap.removeLayer(markerLayerGroupSL5);
+        markerLayerGroupSL5.addTo(mymap);
+        Route43Polyline.setStyle({opacity: 0.5});
+        RouteSL4Polyline.setStyle({opacity: 0.5});
+        Route1Polyline.setStyle({opacity: 0.5});
+        RouteSL5Polyline.setStyle({opacity: 1});
+
+        d3.select("#route_43").style("opacity", "1");
+        d3.select("#route_SL4").style("opacity", "1");
+        d3.select("#route_1").style("opacity", "1");
+        d3.select("#route_SL5").style("opacity", "1");
+
+        d3.selectAll("#bar_route-1").style("fill", route1color);
+        d3.selectAll("#bar_route-43").style("fill", route43color);
+        d3.selectAll("#bar_route-751").style("fill", routeSL5color);
+        d3.selectAll("#bar_route-749").style("fill", routeSL4color);
+
+        d3.select("#route_43").style("opacity", "0.3");
+        d3.select("#route_SL4").style("opacity", "0.3");
+        d3.select("#route_1").style("opacity", "0.3");
+
+        d3.selectAll("#bar_route-1").style("fill", "#828583");
+        d3.selectAll("#bar_route-749").style("fill", "#828583");
+        d3.selectAll("#bar_route-43").style("fill", "#828583");
+    }
+
+}
 
 d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
 
@@ -114,7 +246,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                 .attr("fill", "none")
                 .attr("id", "route_1")
                 .attr("stroke", "#66C2A5")
-                .attr("stroke-width", 1.5)
+                .attr("stroke-width", 5)
                 .attr("d", d3.line()
                     .x(function (d) {
                         return x(new Date(2018, d.month - 1, 1))
@@ -123,6 +255,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                         return y(d.headway_score)
                     })
                 )
+                .on("click", onClick)
         }
 
         //function designed to pull out data specfically associated with each route. By filtering for
@@ -140,7 +273,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                 .attr("fill", "none")
                 .attr("id", "route_43")
                 .attr("stroke", "#fc8d62")
-                .attr("stroke-width", 1.5)
+                .attr("stroke-width", 5)
                 .attr("d", d3.line()
                     .x(function (d) {
                         return x(new Date(2018, d.month - 1, 1))
@@ -149,6 +282,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                         return y(d.headway_score)
                     })
                 )
+                .on("click", onClick)
         }
 
         //function designed to pull out data specfically associated with each route. By filtering for
@@ -166,7 +300,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                 .attr("fill", "none")
                 .attr("id", "route_SL4")
                 .attr("stroke", "#e78ac3")
-                .attr("stroke-width", 1.5)
+                .attr("stroke-width", 5)
                 .attr("d", d3.line()
                     .x(function (d) {
                         return x(new Date(2018, d.month - 1, 1))
@@ -175,6 +309,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                         return y(d.headway_score)
                     })
                 )
+                .on("click", onClick)
         }
 
         //function designed to pull out data specfically associated with each route. By filtering for
@@ -193,7 +328,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                 .attr("fill", "none")
                 .attr("id", "route_SL5")
                 .attr("stroke", "#8da0cb")
-                .attr("stroke-width", 1.5)
+                .attr("stroke-width", 5)
                 .attr("d", d3.line()
                     .x(function (d) {
                         return x(new Date(2018, d.month - 1, 1))
@@ -202,6 +337,7 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                         return y(d.headway_score)
                     })
                 )
+                .on("click", onClick)
         }
 
 
