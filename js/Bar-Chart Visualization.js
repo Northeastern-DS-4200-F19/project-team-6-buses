@@ -219,7 +219,9 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv", function(error, data) {
         .attr("width", x.bandwidth())
         .attr("y", function(d) { return y(d.headway_score); })
         .attr("height", function(d) { return height - y(d.headway_score); })
-        .on("click", onClick);
+        .on("click", onClick)
+        .on("mouseover",onClick)
+        .on("mouseout",offClick);
 
     //identifying route 1 and assigning an identifying color
     svg.selectAll(".bar")

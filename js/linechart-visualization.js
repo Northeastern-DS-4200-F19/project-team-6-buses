@@ -257,6 +257,8 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                     })
                 )
                 .on("click", onClick)
+                .on("mouseover",onClick)
+                .on("mouseout",offClick)
         }
 
         //function designed to pull out data specfically associated with each route. By filtering for
@@ -284,6 +286,8 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                     })
                 )
                 .on("click", onClick)
+                .on("mouseover",onClick)
+                .on("mouseout",offClick)
         }
 
         //function designed to pull out data specfically associated with each route. By filtering for
@@ -311,6 +315,8 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                     })
                 )
                 .on("click", onClick)
+                .on("mouseover",onClick)
+                .on("mouseout",offClick)
         }
 
         //function designed to pull out data specfically associated with each route. By filtering for
@@ -339,6 +345,8 @@ d3.csv("data/OTP by month/Month-by-Month OTP Score.csv",
                     })
                 )
                 .on("click", onClick)
+                .on("mouseover",onClick)
+                .on("mouseout",offClick)
         }
 
 

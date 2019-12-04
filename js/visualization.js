@@ -97,6 +97,8 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
 
     Route1Polyline = L.polyline(Route1coords,{color:route1color});
     Route1Polyline.on('click',onClick);
+    Route1Polyline.on('mouseover',onClick);
+    Route1Polyline.on('mouseout',offClick);
     Route1Polyline.setStyle({
         weight: 5
     });
@@ -104,6 +106,8 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
 
     Route43Polyline = L.polyline(Route43coords,{color:route43color});
     Route43Polyline.on('click',onClick);
+    Route43Polyline.on('mouseover',onClick);
+    Route43Polyline.on('mouseout',offClick);
     Route43Polyline.setStyle({
         weight: 5
     });
@@ -111,6 +115,8 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
 
     RouteSL4Polyline = L.polyline(RouteSL4coords,{color:routeSL4color});
     RouteSL4Polyline.on('click',onClick);
+    RouteSL4Polyline.on('mouseover',onClick);
+    RouteSL4Polyline.on('mouseout',offClick);
     RouteSL4Polyline.setStyle({
         weight: 5
     });
@@ -118,6 +124,8 @@ d3.csv("data/MBTA_GTFS_csv/RouteShapes.csv").then(function(data) {
 
     RouteSL5Polyline = L.polyline(RouteSL5coords,{color:routeSL5color});
     RouteSL5Polyline.on('click',onClick);
+    RouteSL5Polyline.on('mouseover',onClick);
+    Route1Polyline.on('mouseout',offClick);
     RouteSL5Polyline.setStyle({
         weight: 5
     });
@@ -395,6 +403,8 @@ d3.csv("data/MBTA_GTFS_csv/Chester_Square_stops.csv").then(function(data2){
             marker.addTo(mymap2);
             marker.bindPopup("<b>Route: </b>" + stopID + "<br>" + "<b>Stop Name: </b>"+ stopname).openPopup();
             marker.on('click', onClick);
+            marker.on('mouseover',onClick);
+            marker.on('mouseout',offClick);
             marker.off('click', offClick);
         }
     });
