@@ -73,11 +73,12 @@
       <!-- Change viewbox to whatever you want, e.g. "0 0 1000 6000" This determines your aspect ratio and coordinate system -->
       <!--<svg id="vis-svg"
         preserveAspectRatio="xMidYMid meet" class="marks" viewBox="0 0 821 520" >-->
-      <div align="right">
+      <!--<div align="right">
         <button id="my_button" onclick="offClick()" type="button" class="btn btn-primary">Map Reset</button>
-      </div>
+      </div>-->
+
       <div class = "row">
-        <div class="col vis-holder" id="mapid2" style="width: 550px; height: 420px; float: left"></div>
+        <div class="col vis-holder" id="mapid2" style="width: 550px; height: 420px; float: left" ></div>
         <div class="col vis-holder" id="mapid" style="width: 550px; height: 420px; margin-left: 600px;"></div>
       </div>
       <div class="row">
@@ -100,6 +101,22 @@
         On the right, we have a visual that displays the bus routes that most primarily affect the Chester Square Neighborhood.
         We've identified those routes as the 1, 43, SL4, and SL5 routes, due to their proximity near the Chester Square community.
       </p>
+      <p>
+        On the bottom two visuals we have two graphs that help analytically explain how the surrounding bus lines perform via their on-time
+        performance scores. After exploring the data, and performing some calculations in order to filter the numbers down to the aligned
+        purpose of what we want them to show, we we're able to display how each route performed over the year 2018.
+      </p>
+      <p>
+        The chart on the bottom left is a line chart of the entire years on time performance, with each line indicating a separate bus line.
+        It is useful in determining how each bus operates in reagrds to a specific time of year. Seasonality has a big impact on the bus lines,
+        as weather and climate can impact the amount of traffic that's on the road, as well as the conditions people are driving in.
+      </p>
+      <p>
+        The chart on the bottom right is a bar chart identifying the total average headway score, or on-time performance, of each line for the
+        entire year bulked together. We see that on average the Silver lines - SL4 : 749, and SL5 : 751 - are better performing lines than the
+        43 and 1. This chart is great for just getting a general understanding of how each line performs in comparision to the others.
+      </p>
+
       
       <h1>Demo Video</h1>
 
